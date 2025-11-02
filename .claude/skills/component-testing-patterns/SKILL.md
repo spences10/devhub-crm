@@ -1,9 +1,7 @@
 ---
 name: component-testing-patterns
-description:
-  Vitest browser mode component testing. Use for testing Svelte 5
-  components with real browsers, locators, accessibility patterns, and
-  reactive state.
+# prettier-ignore
+description: Vitest browser mode component testing. Use for testing Svelte 5 components with real browsers, locators, accessibility patterns, and reactive state.
 ---
 
 # Component Testing Patterns

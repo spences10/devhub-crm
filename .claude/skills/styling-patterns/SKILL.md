@@ -1,8 +1,7 @@
 ---
 name: styling-patterns
-description:
-  DaisyUI v5 design system. Use for backgrounds, borders, text sizes,
-  opacity, semantic colors, and spacing.
+# prettier-ignore
+description: DaisyUI v5 design system. Use for backgrounds, borders, text sizes, opacity, semantic colors, and spacing.
 ---
 
 # Styling Patterns

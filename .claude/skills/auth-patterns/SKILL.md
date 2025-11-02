@@ -1,8 +1,7 @@
 ---
 name: auth-patterns
-description:
-  Better-auth integration for authentication. Use when implementing
-  login, registration, protected routes, or email verification.
+# prettier-ignore
+description: Better-auth integration for authentication. Use when implementing login, registration, protected routes, or email verification.
 ---
 
 # Auth Patterns

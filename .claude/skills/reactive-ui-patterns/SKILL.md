@@ -1,9 +1,7 @@
 ---
 name: reactive-ui-patterns
-description:
-  Remote functions reactive UI patterns. Use for smooth in-place
-  updates, preventing page jumps, and managing loading states with
-  .current property.
+# prettier-ignore
+description: Remote functions reactive UI patterns. Use for smooth in-place updates, preventing page jumps, and managing loading states with .current property.
 ---
 
 # Reactive UI Patterns

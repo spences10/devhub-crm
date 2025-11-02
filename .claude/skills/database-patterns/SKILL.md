@@ -1,9 +1,7 @@
 ---
 name: database-patterns
-description:
-  SQLite operations using better-sqlite3 with prepared statements. Use
-  when implementing CRUD operations, timestamps, and user-scoped
-  queries with row-level security.
+# prettier-ignore
+description: SQLite operations using better-sqlite3 with prepared statements. Use when implementing CRUD operations, timestamps, and user-scoped queries with row-level security.
 ---
 
 # Database Patterns

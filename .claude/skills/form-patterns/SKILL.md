@@ -1,8 +1,7 @@
 ---
 name: form-patterns
-description:
-  DaisyUI v5 form patterns. Use for inputs, selects, textareas,
-  validation, and form structure with fieldset/legend.
+# prettier-ignore
+description: DaisyUI v5 form patterns. Use for inputs, selects, textareas, validation, and form structure with fieldset/legend.
 ---
 
 # Form Patterns

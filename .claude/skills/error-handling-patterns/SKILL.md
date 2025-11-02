@@ -1,8 +1,7 @@
 ---
 name: error-handling-patterns
-description:
-  Svelte 5 error handling. Use for error boundaries, async await
-  expressions, loading states, and form errors.
+# prettier-ignore
+description: Svelte 5 error handling. Use for error boundaries, async await expressions, loading states, and form errors.
 ---
 
 # Error Handling Patterns

@@ -1,8 +1,7 @@
 ---
 name: sveltekit-patterns
-description:
-  SvelteKit patterns for devhub-crm. Use for remote functions (query,
-  form, command), routing, and server-side logic.
+# prettier-ignore
+description: SvelteKit patterns for devhub-crm. Use for remote functions (query, form, command), routing, and server-side logic.
 ---
 
 # SvelteKit Patterns
@@ -45,10 +44,8 @@ export const delete_contact = command(v.string(), async (id) => {
 - **Remote functions**: `query` (read), `form` (mutations +
   redirects), `command` (mutations only)
 - **Validation**: Use valibot schemas for all remote functions
-- **Security**: Include `user_id` in all database queries (row-level
-  security)
-- **API routes**: Use `+server.ts` for REST endpoints, webhooks,
-  external APIs
+- **Security**: Include `user_id` in all queries (row-level security)
+- **API routes**: Use `+server.ts` for REST endpoints
 - **Optimization**: Use `query.batch()` for N+1 prevention
 
 ## Reference Files
