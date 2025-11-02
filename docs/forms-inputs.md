@@ -2,8 +2,8 @@
 
 Complete reference for all form input types using daisyUI v5 patterns.
 
-See [forms-daisy-ui-v5.md](./forms-daisy-ui-v5.md) for basic structure
-and v4→v5 migration info.
+For basic form structure and v4→v5 migration, see the `form-patterns`
+skill.
 
 ## Important: Number Input Validation
 
