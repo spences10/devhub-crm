@@ -284,21 +284,18 @@ export const create_contact = form(schema, async (data) => {
 complete. Always return `{ success: true }` or an error object.
 
 ```typescript
-export const delete_contact = command(
-	v.string(),
-	async (id) => {
-		const user_id = await get_current_user_id();
-		await db.query(
-			'DELETE FROM contacts WHERE id = ? AND user_id = ?',
-			[id, user_id],
-		);
+export const delete_contact = command(v.string(), async (id) => {
+	const user_id = await get_current_user_id();
+	await db.query(
+		'DELETE FROM contacts WHERE id = ? AND user_id = ?',
+		[id, user_id],
+	);
 
-		// ✅ Explicitly refresh queries (commands don't refresh by default)
-		await get_contacts().refresh();
+	// ✅ Explicitly refresh queries (commands don't refresh by default)
+	await get_contacts().refresh();
 
-		return { success: true }; // ✅ Required for proper async completion
-	},
-);
+	return { success: true }; // ✅ Required for proper async completion
+});
 ```
 
 **Why return values matter:** Without a return value, the command may

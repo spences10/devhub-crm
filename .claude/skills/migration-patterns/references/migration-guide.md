@@ -6,13 +6,16 @@ Complete guide for creating and managing database migrations.
 
 This project uses a dual approach for database schema management:
 
-1. **Base schema** (`schema.sql`) - The complete database schema, run on every startup
-2. **Migrations** (`migrations/*.sql`) - Incremental changes tracked and run once
+1. **Base schema** (`schema.sql`) - The complete database schema, run
+   on every startup
+2. **Migrations** (`migrations/*.sql`) - Incremental changes tracked
+   and run once
 
 On application startup (via `hooks.server.ts`):
 
 1. The base `schema.sql` is executed (all tables use `IF NOT EXISTS`)
-2. The migration runner checks for pending migrations in the `migrations/` folder
+2. The migration runner checks for pending migrations in the
+   `migrations/` folder
 3. Each migration is run once and tracked in the `migrations` table
 
 ## Creating a Migration
@@ -98,16 +101,20 @@ CREATE TABLE migrations (
 )
 ```
 
-Each migration file name is stored when applied, preventing duplicate runs.
+Each migration file name is stored when applied, preventing duplicate
+runs.
 
 ## Best Practices
 
 1. **Always use IF NOT EXISTS** - Makes migrations safe to re-run
 2. **One feature per migration** - Keep migrations focused
 3. **Include indexes** - Add indexes in the same migration as tables
-4. **Test locally first** - Verify the migration works before committing
-5. **Never modify existing migrations** - Create a new migration instead
-6. **Update schema.sql** - Keep the base schema in sync with migrations
+4. **Test locally first** - Verify the migration works before
+   committing
+5. **Never modify existing migrations** - Create a new migration
+   instead
+6. **Update schema.sql** - Keep the base schema in sync with
+   migrations
 
 ## Workflow
 

@@ -1,6 +1,7 @@
 # Migration Patterns
 
-Database migration patterns for SQLite. Use when creating migrations, modifying schema, or running database changes.
+Database migration patterns for SQLite. Use when creating migrations,
+modifying schema, or running database changes.
 
 ## Structure
 
@@ -11,4 +12,5 @@ Database migration patterns for SQLite. Use when creating migrations, modifying 
 
 ## Usage
 
-This skill is automatically discovered by Claude when relevant to the task.
+This skill is automatically discovered by Claude when relevant to the
+task.

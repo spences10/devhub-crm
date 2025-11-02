@@ -20,8 +20,8 @@ Store the query in a variable and access `.current` to:
 - **Keep previous data visible** during refresh
 - **Preserve scroll position** - No component recreation
 - **Maintain component state** - Forms, selections stay intact
-- **Show subtle loading indicators** - Optional opacity instead of full
-  spinner
+- **Show subtle loading indicators** - Optional opacity instead of
+  full spinner
 
 ## Query Object Properties
 
@@ -73,7 +73,7 @@ query.current; // T | undefined - persists during refresh!
 			<button onclick={save_edit}>Save</button>
 		{:else}
 			<p>{interaction.note}</p>
-			<button onclick={() => edit_id = interaction.id}>Edit</button>
+			<button onclick={() => (edit_id = interaction.id)}>Edit</button>
 		{/if}
 	{/each}
 {/await}
@@ -122,7 +122,9 @@ query.current; // T | undefined - persists during refresh!
 				<button onclick={save_edit}>Save</button>
 			{:else}
 				<p>{interaction.note}</p>
-				<button onclick={() => edit_id = interaction.id}>Edit</button>
+				<button onclick={() => (edit_id = interaction.id)}
+					>Edit</button
+				>
 			{/if}
 		{/each}
 	</div>
@@ -140,15 +142,15 @@ query.current; // T | undefined - persists during refresh!
 
 ## Why `.current` is Better
 
-| Aspect                | `{#await}`                          | `.current`                                 |
-| --------------------- | ----------------------------------- | ------------------------------------------ |
-| **Scroll position**   | Lost - scrolls to top               | Preserved - stays in place                 |
-| **Content visibility** | Hides then shows (flash)            | Always visible                             |
-| **Component state**   | Lost - inputs reset                 | Preserved - forms stay intact              |
-| **Loading indicator** | Full spinner blocks content         | Subtle opacity, content accessible         |
-| **User experience**   | Feels like page reload              | Feels smooth and responsive                |
-| **DOM operations**    | Recreates entire component tree     | Updates in place                           |
-| **Edit state**        | Lost during refresh                 | Maintained during refresh                  |
+| Aspect                 | `{#await}`                      | `.current`                         |
+| ---------------------- | ------------------------------- | ---------------------------------- |
+| **Scroll position**    | Lost - scrolls to top           | Preserved - stays in place         |
+| **Content visibility** | Hides then shows (flash)        | Always visible                     |
+| **Component state**    | Lost - inputs reset             | Preserved - forms stay intact      |
+| **Loading indicator**  | Full spinner blocks content     | Subtle opacity, content accessible |
+| **User experience**    | Feels like page reload          | Feels smooth and responsive        |
+| **DOM operations**     | Recreates entire component tree | Updates in place                   |
+| **Edit state**         | Lost during refresh             | Maintained during refresh          |
 
 ## When to Use `.current`
 
@@ -171,7 +173,11 @@ query.current; // T | undefined - persists during refresh!
 
 ```svelte
 <script lang="ts">
-	import { get_contacts, update_contact, delete_contact } from './contacts.remote';
+	import {
+		get_contacts,
+		update_contact,
+		delete_contact,
+	} from './contacts.remote';
 
 	const contacts_query = get_contacts();
 	let editing_id = $state<string | null>(null);
@@ -216,26 +222,35 @@ query.current; // T | undefined - persists during refresh!
 			<div class="card bg-base-100 p-4 shadow-md">
 				{#if editing_id === contact.id}
 					<!-- Edit mode -->
-					<input
-						bind:value={edit_name}
-						class="input w-full"
-					/>
-					<div class="flex gap-2 mt-2">
-						<button class="btn btn-primary btn-sm" onclick={save_edit}>
+					<input bind:value={edit_name} class="input w-full" />
+					<div class="mt-2 flex gap-2">
+						<button
+							class="btn btn-sm btn-primary"
+							onclick={save_edit}
+						>
 							Save
 						</button>
-						<button class="btn btn-ghost btn-sm" onclick={() => editing_id = null}>
+						<button
+							class="btn btn-ghost btn-sm"
+							onclick={() => (editing_id = null)}
+						>
 							Cancel
 						</button>
 					</div>
 				{:else}
 					<!-- View mode -->
 					<p class="text-lg font-semibold">{contact.name}</p>
-					<div class="flex gap-2 mt-2">
-						<button class="btn btn-ghost btn-sm" onclick={() => start_edit(contact)}>
+					<div class="mt-2 flex gap-2">
+						<button
+							class="btn btn-ghost btn-sm"
+							onclick={() => start_edit(contact)}
+						>
 							Edit
 						</button>
-						<button class="btn btn-error btn-sm" onclick={() => handle_delete(contact.id)}>
+						<button
+							class="btn btn-sm btn-error"
+							onclick={() => handle_delete(contact.id)}
+						>
 							Delete
 						</button>
 					</div>
@@ -246,9 +261,7 @@ query.current; // T | undefined - persists during refresh!
 
 	<!-- Optional: Show refresh indicator -->
 	{#if contacts_query.loading}
-		<div class="mt-2 text-sm opacity-60">
-			Refreshing...
-		</div>
+		<div class="mt-2 text-sm opacity-60">Refreshing...</div>
 	{/if}
 {/if}
 ```
@@ -259,7 +272,8 @@ query.current; // T | undefined - persists during refresh!
    `.current` access
 2. **Check `.current === undefined`** - Only show spinner on initial
    load
-3. **Use opacity during refresh** - Keep content visible and accessible
+3. **Use opacity during refresh** - Keep content visible and
+   accessible
 4. **Preserve user state** - Forms, selections, scroll position all
    maintained
 5. **Better UX** - Smooth transitions instead of jarring page jumps

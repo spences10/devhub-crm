@@ -10,13 +10,18 @@ description: SvelteKit patterns for devhub-crm. Use for remote functions (query,
 
 ```typescript
 // Query: Read data
-export const get_contacts = query(() => db.prepare('SELECT * FROM contacts').all());
+export const get_contacts = query(() =>
+	db.prepare('SELECT * FROM contacts').all(),
+);
 
 // Form: Validated mutation with redirect
-export const create = form(v.object({ name: v.string() }), async ({ name }) => {
-	db.prepare('INSERT INTO contacts ...').run(id, name);
-	redirect(303, '/contacts');
-});
+export const create = form(
+	v.object({ name: v.string() }),
+	async ({ name }) => {
+		db.prepare('INSERT INTO contacts ...').run(id, name);
+		redirect(303, '/contacts');
+	},
+);
 
 // Command: Mutation with refresh
 export const delete_contact = command(v.string(), async (id) => {

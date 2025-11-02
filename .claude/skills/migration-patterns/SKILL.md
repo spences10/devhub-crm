@@ -1,6 +1,5 @@
 ---
 name: migration-patterns
-# IMPORTANT: Keep description on ONE line for Claude Code compatibility
 # prettier-ignore
 description: Database migration patterns for SQLite. Use when creating migrations, modifying schema, or running database changes.
 ---
@@ -30,7 +29,8 @@ CREATE INDEX IF NOT EXISTS idx_tags_user_id ON tags(user_id);
 
 ## Core Principles
 
-- **Dual approach**: Create migration in `migrations/` + update `schema.sql`
+- **Dual approach**: Create migration in `migrations/` + update
+  `schema.sql`
 - **Naming**: `{number}_{description}.sql` (e.g., `001_add_tags.sql`)
 - **Zero-padded numbers**: 001, 002, 003 (run alphabetically)
 - **IF NOT EXISTS**: Always use for idempotency
@@ -40,7 +40,8 @@ CREATE INDEX IF NOT EXISTS idx_tags_user_id ON tags(user_id);
 
 ## Reference Files
 
-- [migration-guide.md](references/migration-guide.md) - Complete workflow and examples
+- [migration-guide.md](references/migration-guide.md) - Complete
+  workflow and examples
 - [troubleshooting.md](references/troubleshooting.md) - Common issues
 
 <!--

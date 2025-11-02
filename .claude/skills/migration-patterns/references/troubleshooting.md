@@ -5,6 +5,7 @@ Common issues and solutions when working with database migrations.
 ## Migration Not Running
 
 **Symptoms:**
+
 - Migration file exists but doesn't execute on startup
 - No migration log messages in console
 - Changes not applied to database
@@ -25,9 +26,11 @@ Common issues and solutions when working with database migrations.
    - Use underscores, not spaces
 
 4. **Check migration tracking table**
+
    ```sql
    SELECT * FROM migrations;
    ```
+
    - If migration name is listed, it already ran
    - Can't re-run without manual intervention
 
@@ -38,6 +41,7 @@ Common issues and solutions when working with database migrations.
 ## Migration Fails
 
 **Symptoms:**
+
 - Migration starts but fails with SQL error
 - Application fails to start
 - Database in inconsistent state
@@ -86,6 +90,7 @@ npm run dev
 ## Migration Already Exists Error
 
 **Symptoms:**
+
 - Error: "Migration XXX already applied"
 - Need to modify an already-run migration
 
@@ -94,6 +99,7 @@ npm run dev
 **NEVER modify existing migrations.** Instead:
 
 1. Create a new migration to make the change:
+
    ```sql
    -- migrations/004_modify_tags_table.sql
    ALTER TABLE tags ADD COLUMN description TEXT;
@@ -108,6 +114,7 @@ npm run dev
 ## Migration Order Issues
 
 **Symptoms:**
+
 - Migration fails because it depends on another migration
 - "Table doesn't exist" errors
 
@@ -125,6 +132,7 @@ npm run dev
 ## Schema.sql Out of Sync
 
 **Symptoms:**
+
 - New databases missing tables that exist in migrated databases
 - Different schema between fresh installs and migrated databases
 
@@ -143,12 +151,14 @@ npm run dev
 ## Permission Errors
 
 **Symptoms:**
+
 - Can't read/write migration files
 - Can't write to migrations table
 
 **Solutions:**
 
 1. **Check file permissions**
+
    ```bash
    chmod 644 migrations/*.sql
    ```
@@ -163,21 +173,25 @@ npm run dev
 To test a migration before committing:
 
 1. **Backup database**
+
    ```bash
    cp local.db local.db.backup
    ```
 
 2. **Create migration**
+
    ```bash
    # Write migration file
    ```
 
 3. **Restart app**
+
    ```bash
    npm run dev
    ```
 
 4. **Verify changes**
+
    ```bash
    # Check tables/indexes in SQLite browser
    # Verify app functionality
