@@ -89,7 +89,7 @@ importers:
         version: 0.7.1(prettier-plugin-svelte@3.4.0(prettier@3.6.2)(svelte@5.43.3))(prettier@3.6.2)
       resend:
         specifier: ^6.3.0
-        version: 6.4.1
+        version: 6.4.2
       svead:
         specifier: ^0.0.15
         version: 0.0.15(svelte@5.43.3)
@@ -1714,8 +1714,8 @@ packages:
   requires-port@1.0.0:
     resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
 
-  resend@6.4.1:
-    resolution: {integrity: sha512-+P1gF6bYT0lKd0vsYyKKTHd6PfMH37yDgNRA6wAARQgQbYlc2BZYuo9sB/uZKkVg1oGSh0cgpnxNKGsZJutXMg==}
+  resend@6.4.2:
+    resolution: {integrity: sha512-YnxmwneltZtjc7Xff+8ZjG1/xPLdstCiqsedgO/JxWTf7vKRAPCx6CkhQ3ZXskG0mrmf8+I5wr/wNRd8PQMUfw==}
     engines: {node: '>=18'}
     peerDependencies:
       '@react-email/render': '*'
@@ -3579,7 +3579,7 @@ snapshots:
 
   requires-port@1.0.0: {}
 
-  resend@6.4.1:
+  resend@6.4.2:
     dependencies:
       svix: 1.76.1
 
