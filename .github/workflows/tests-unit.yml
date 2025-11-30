@@ -29,7 +29,7 @@ jobs:
       - name: Verify Playwright versions match
         run: |
           PACKAGE_VERSION=$(node -p "require('./package.json').devDependencies.playwright.replace('^', '')")
-          CONTAINER_VERSION="1.56.1"
+          CONTAINER_VERSION="1.57.0"
           if [ "$PACKAGE_VERSION" != "$CONTAINER_VERSION" ]; then
             echo "::error::Playwright versions don't match!"
             echo "::error::Package.json: $PACKAGE_VERSION"
