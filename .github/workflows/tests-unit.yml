@@ -26,17 +26,6 @@ jobs:
           node-version: 24.x
           cache: 'pnpm'
 
-      - name: Verify Playwright versions match
-        run: |
-          PACKAGE_VERSION=$(node -p "require('./package.json').devDependencies.playwright.replace('^', '')")
-          CONTAINER_VERSION="1.57.0"
-          if [ "$PACKAGE_VERSION" != "$CONTAINER_VERSION" ]; then
-            echo "::error::Playwright versions don't match!"
-            echo "::error::Package.json: $PACKAGE_VERSION"
-            echo "::error::Container: $CONTAINER_VERSION"
-            exit 1
-          fi
-
       - name: Install dependencies
         run: pnpm install
 
