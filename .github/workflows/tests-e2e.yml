@@ -32,7 +32,7 @@ jobs:
       - name: Run e2e tests
         run: pnpm run test:e2e
         env:
-          BETTER_AUTH_SECRET: test_secret_for_e2e_at_least_32_chars_long
+          AUTH_SECRET: test_secret_for_e2e_at_least_32_chars_long
           PUBLIC_FATHOM_ID: test_fathom_id
           PUBLIC_FATHOM_URL: https://test.example.com
           PUBLIC_TURNSTILE_SITE_KEY: test_turnstile_site_key

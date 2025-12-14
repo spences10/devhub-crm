@@ -139,7 +139,7 @@ export const auth = betterAuth({
 			scope: ['user:email'],
 		},
 	},
-	secret: env.AUTH_SECRET || 'dev-secret-change-in-production',
+	secret: env.AUTH_SECRET || 'dev-secret-change-in-production-ok',
 	baseURL: env.AUTH_BASE_URL || 'http://localhost:5173',
 	plugins: [
 		sveltekitCookies(getRequestEvent), // Automatically handles cookies
