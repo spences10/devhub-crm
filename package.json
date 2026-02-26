@@ -28,7 +28,7 @@
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.0.2",
-		"@eslint/js": "^9.39.2",
+		"@eslint/js": "^10.0.0",
 		"@playwright/test": "^1.58.1",
 		"@sveltejs/adapter-node": "^5.5.2",
 		"@sveltejs/kit": "^2.50.1",
@@ -40,7 +40,7 @@
 		"@vitest/browser-playwright": "^4.0.18",
 		"daisyui": "^5.5.16",
 		"date-fns": "^4.1.0",
-		"eslint": "^9.39.2",
+		"eslint": "^10.0.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.14.0",
 		"fathom-client": "^3.7.2",
