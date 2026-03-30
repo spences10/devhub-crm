@@ -24,7 +24,7 @@
 		"better-auth": "^1.5.5",
 		"better-sqlite3": "^12.8.0",
 		"qr-code-styling": "^1.9.2",
-		"sqlite-vec": "0.1.7"
+		"sqlite-vec": "0.1.8"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.0.3",
