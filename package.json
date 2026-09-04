@@ -35,7 +35,7 @@
 		"@sveltejs/vite-plugin-svelte": "^7.0.0",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.2.1",
-		"@types/better-sqlite3": "^7.6.13",
+		"@types/better-sqlite3": "^9.0.0",
 		"@types/node": "^25",
 		"@vitest/browser-playwright": "^4.1.0",
 		"daisyui": "^5.5.19",
