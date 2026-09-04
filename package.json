@@ -47,7 +47,7 @@
 		"globals": "^17.4.0",
 		"playwright": "^1.58.2",
 		"prettier": "^3.8.1",
-		"prettier-plugin-svelte": "^3.5.1",
+		"prettier-plugin-svelte": "^4.0.0",
 		"prettier-plugin-tailwindcss": "^0.7.2",
 		"resend": "^6.9.3",
 		"svead": "^0.0.15",
