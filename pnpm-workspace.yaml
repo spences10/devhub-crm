@@ -1,6 +1,9 @@
 packages:
   - .
 
+overrides:
+  cookie: 0.7.2
+
 allowBuilds:
   '@tailwindcss/oxide': true
   esbuild: true
