@@ -2,10 +2,12 @@
 nixPkgs = ["nodejs_24"]
 
 [phases.install]
-cmds = ["corepack pnpm@12.3.4 install --frozen-lockfile"]
+cmds = [
+	"npm install -g pnpm@12.3.4 && $(npm prefix -g)/bin/pnpm install --frozen-lockfile --config.engine-strict=false --config.optional=true",
+]
 
 [phases.build]
-cmds = ["corepack pnpm@12.3.4 run build"]
+cmds = ["$(npm prefix -g)/bin/pnpm exec vite build"]
 
 [start]
 cmd = "node ./build/index.js"
