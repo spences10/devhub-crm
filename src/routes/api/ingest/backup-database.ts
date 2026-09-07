@@ -1,7 +1,7 @@
 import { get_database_path } from '$lib/server/db-path';
-import Database from 'better-sqlite3';
 import { format } from 'date-fns';
 import fs from 'node:fs/promises';
+import { backup, DatabaseSync } from 'node:sqlite';
 import path from 'node:path';
 
 export const backup_database = async () => {
@@ -38,10 +38,10 @@ export const backup_database = async () => {
 		);
 		console.log(`[backup_database] Full backup path: ${backup_path}`);
 
-		const source_db = new Database(db_path, { readonly: true });
+		const source_db = new DatabaseSync(db_path, { readOnly: true });
 
 		try {
-			await source_db.backup(backup_path);
+			await backup(source_db, backup_path);
 			console.log(`[backup_database] Backup created successfully`);
 		} finally {
 			source_db.close();

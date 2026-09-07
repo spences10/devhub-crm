@@ -199,7 +199,7 @@ export const forgot_password = form(
 		}
 
 		try {
-			await auth.api.forgetPassword({
+			await auth.api.requestPasswordReset({
 				body: {
 					email,
 					redirectTo: '/reset-password',

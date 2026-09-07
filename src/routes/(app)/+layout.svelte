@@ -215,7 +215,7 @@
 		</div>
 	{/snippet}
 
-	{#snippet failed(error: unknown, reset)}
+	{#snippet failed(error: unknown, reset: () => void)}
 		<div class="flex min-h-screen items-center justify-center">
 			<div class="alert max-w-md alert-error">
 				<span

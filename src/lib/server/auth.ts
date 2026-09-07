@@ -2,20 +2,11 @@ import { getRequestEvent } from '$app/server';
 import { env } from '$env/dynamic/private';
 import { betterAuth } from 'better-auth';
 import { sveltekitCookies } from 'better-auth/svelte-kit';
-import Database from 'better-sqlite3';
-import { get_database_path } from './db-path';
+import { native_db } from './db';
 import { resend } from './resend';
 
-// Create separate database instance for Better Auth
-const auth_db = new Database(get_database_path());
-
-// Enable WAL mode for better concurrency
-auth_db.pragma('journal_mode = WAL');
-auth_db.pragma('busy_timeout = 5000');
-auth_db.pragma('synchronous = NORMAL');
-
 export const auth = betterAuth({
-	database: auth_db,
+	database: native_db,
 	emailAndPassword: {
 		enabled: true,
 		requireEmailVerification: true,

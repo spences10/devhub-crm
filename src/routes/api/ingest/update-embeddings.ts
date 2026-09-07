@@ -1,4 +1,4 @@
-import { db } from '$lib/server/db';
+import { db, run_in_transaction } from '$lib/server/db';
 import type { Contact, Interaction } from '$lib/types/db';
 import {
 	compute_content_hash,
@@ -174,7 +174,7 @@ export const update_embeddings = async (user_id?: string) => {
 				'UPDATE contacts SET content_hash = ? WHERE id = ?',
 			);
 
-			const store_transaction = db.transaction(() => {
+			run_in_transaction(() => {
 				for (let i = 0; i < contacts_to_embed.length; i++) {
 					const { id, hash } = contacts_to_embed[i];
 					const embedding = contact_embeddings[i];
@@ -195,8 +195,6 @@ export const update_embeddings = async (user_id?: string) => {
 					}
 				}
 			});
-
-			store_transaction();
 
 			console.log(`Stored ${embedded_contacts} contact embeddings`);
 		}
@@ -224,7 +222,7 @@ export const update_embeddings = async (user_id?: string) => {
 				'UPDATE interactions SET content_hash = ? WHERE id = ?',
 			);
 
-			const store_transaction = db.transaction(() => {
+			run_in_transaction(() => {
 				for (let i = 0; i < interactions_to_embed.length; i++) {
 					const { id, hash } = interactions_to_embed[i];
 					const embedding = interaction_embeddings[i];
@@ -245,8 +243,6 @@ export const update_embeddings = async (user_id?: string) => {
 					}
 				}
 			});
-
-			store_transaction();
 
 			console.log(
 				`Stored ${embedded_interactions} interaction embeddings`,

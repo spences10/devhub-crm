@@ -46,7 +46,7 @@ export const guarded_form = <T extends ObjectSchema<any, any>>(
 	schema: T,
 	fn: (data: any) => any,
 ) => {
-	return form(schema, async (data) => {
+	return form(schema as any, async (data) => {
 		const event = getRequestEvent();
 
 		const session = await auth.api.getSession({

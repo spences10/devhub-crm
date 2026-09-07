@@ -1,11 +1,11 @@
 [phases.setup]
-nixPkgs = ["nodejs_22", "pnpm-9_x"]
+nixPkgs = ["nodejs_24"]
 
 [phases.install]
-cmds = ["pnpm i --frozen-lockfile --config.engine-strict=false"]
+cmds = ["corepack pnpm@12.3.4 install --frozen-lockfile"]
 
 [phases.build]
-cmds = ["pnpm run build"]
+cmds = ["corepack pnpm@12.3.4 run build"]
 
 [start]
-cmd = "pnpm run start"
+cmd = "node ./build/index.js"

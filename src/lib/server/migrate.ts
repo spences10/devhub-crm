@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { db } from './db';
+import { db, run_in_transaction } from './db';
 
 // Create migrations table if it doesn't exist
 function init_migrations_table() {
@@ -22,7 +22,7 @@ function get_applied_migrations(): string[] {
 
 // Apply a single migration
 function apply_migration(name: string, sql: string) {
-	const transaction = db.transaction(() => {
+	run_in_transaction(() => {
 		try {
 			db.exec(sql);
 		} catch (error: any) {
@@ -43,8 +43,6 @@ function apply_migration(name: string, sql: string) {
 			'INSERT INTO migrations (name, applied_at) VALUES (?, ?)',
 		).run(name, Date.now());
 	});
-
-	transaction();
 }
 
 // Run all pending migrations

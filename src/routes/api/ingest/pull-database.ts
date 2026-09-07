@@ -1,8 +1,8 @@
 import { env } from '$env/dynamic/private';
 import { get_database_path } from '$lib/server/db-path';
-import Database from 'better-sqlite3';
 import { format } from 'date-fns';
 import fs from 'node:fs/promises';
+import { backup, DatabaseSync } from 'node:sqlite';
 import path from 'node:path';
 
 export const pull_database = async () => {
@@ -62,9 +62,9 @@ export const pull_database = async () => {
 		);
 
 		try {
-			const current_db = new Database(db_path, { readonly: true });
+			const current_db = new DatabaseSync(db_path, { readOnly: true });
 			try {
-				await current_db.backup(current_backup_path);
+				await backup(current_db, current_backup_path);
 				console.log(
 					`[pull_database] Current database backed up to: ${current_backup_path}`,
 				);
@@ -80,12 +80,12 @@ export const pull_database = async () => {
 
 		// Replace local database with downloaded backup using SQLite backup API
 		// This avoids corruption issues with WAL mode (see: scottspence.com/posts/sqlite-corruption-fs-copyfile-issue)
-		const downloaded_db = new Database(downloaded_path, {
-			readonly: true,
+		const downloaded_db = new DatabaseSync(downloaded_path, {
+			readOnly: true,
 		});
 
 		try {
-			await downloaded_db.backup(db_path);
+			await backup(downloaded_db, db_path);
 			console.log(
 				`[pull_database] Database replaced with production backup`,
 			);

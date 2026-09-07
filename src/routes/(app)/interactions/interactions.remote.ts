@@ -4,7 +4,7 @@ import {
 	guarded_command,
 	guarded_form,
 } from '$lib/server/auth-helpers';
-import { db } from '$lib/server/db';
+import { db, run_in_transaction } from '$lib/server/db';
 import type { Interaction } from '$lib/types/db';
 import { redirect } from '@sveltejs/kit';
 import * as v from 'valibot';
@@ -147,7 +147,7 @@ export const create_interaction = guarded_form(
 		}
 
 		// Use a transaction to create interaction and update contact
-		const transaction = db.transaction(() => {
+		run_in_transaction(() => {
 			const id = crypto.randomUUID();
 			const now = Date.now();
 
@@ -175,8 +175,6 @@ export const create_interaction = guarded_form(
 
 			return { id };
 		});
-
-		transaction();
 
 		// Single-flight mutation: refresh related queries
 		await get_interactions(data.contact_id).refresh();

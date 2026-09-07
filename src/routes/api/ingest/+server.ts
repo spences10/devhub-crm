@@ -1,5 +1,5 @@
 import { env } from '$env/dynamic/private';
-import { json } from '@sveltejs/kit';
+import { json, type RequestHandler } from '@sveltejs/kit';
 import { backup_database } from './backup-database';
 import { compute_insights } from './compute-insights';
 import { pull_database } from './pull-database';
@@ -88,7 +88,7 @@ const tasks: TaskType = {
 	},
 };
 
-export const POST = async ({ request }) => {
+export const POST: RequestHandler = async ({ request }) => {
 	try {
 		const body: RequestBody = await request.json();
 		const token = body.token;

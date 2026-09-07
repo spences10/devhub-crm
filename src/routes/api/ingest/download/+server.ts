@@ -1,6 +1,6 @@
 import { env } from '$env/dynamic/private';
 import { get_database_path } from '$lib/server/db-path';
-import { error } from '@sveltejs/kit';
+import { error, type RequestHandler } from '@sveltejs/kit';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
@@ -17,7 +17,7 @@ import path from 'node:path';
 //      -H "Content-Type: application/json" \
 //      -d '{"task": "pull_database", "token": "your-secret-token"}'
 
-export const GET = async ({ request }) => {
+export const GET: RequestHandler = async ({ request }) => {
 	try {
 		// Check authorization
 		const auth_header = request.headers.get('authorization');

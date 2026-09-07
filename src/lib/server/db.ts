@@ -1,28 +1,52 @@
-import Database from 'better-sqlite3';
+import { DatabaseSync } from 'node:sqlite';
 import * as sqliteVec from 'sqlite-vec';
 import { get_database_path } from './db-path';
 
-const db = new Database(get_database_path());
+interface Statement {
+	all(...values: unknown[]): unknown[];
+	get(...values: unknown[]): unknown;
+	run(...values: unknown[]): {
+		changes: number;
+		lastInsertRowid: number | bigint;
+	};
+}
 
-// Load sqlite-vec extension for vector similarity search
+interface Database {
+	exec(sql: string): void;
+	prepare(sql: string): Statement;
+}
+
+const native_db = new DatabaseSync(get_database_path(), {
+	allowExtension: true,
+});
+const db = native_db as unknown as Database;
+
 try {
-	sqliteVec.load(db);
+	sqliteVec.load(native_db);
 	console.log('sqlite-vec extension loaded successfully');
 } catch (error) {
 	console.warn('sqlite-vec extension failed to load:', error);
 	console.warn('Vector similarity queries will not work');
 }
 
-// Enable foreign keys
-db.pragma('foreign_keys = ON');
+native_db.exec('PRAGMA foreign_keys = ON');
+native_db.exec('PRAGMA journal_mode = WAL');
+native_db.exec('PRAGMA busy_timeout = 5000');
+native_db.exec('PRAGMA synchronous = NORMAL');
 
-// Enable WAL mode for better concurrency
-db.pragma('journal_mode = WAL');
+export function run_in_transaction<T>(fn: () => T): T {
+	native_db.exec('BEGIN');
 
-// Wait up to 5 seconds on busy instead of failing immediately
-db.pragma('busy_timeout = 5000');
+	try {
+		const result = fn();
+		native_db.exec('COMMIT');
+		return result;
+	} catch (error) {
+		if (native_db.isTransaction) {
+			native_db.exec('ROLLBACK');
+		}
+		throw error;
+	}
+}
 
-// Balance between durability and performance
-db.pragma('synchronous = NORMAL');
-
-export { db };
+export { db, native_db };
