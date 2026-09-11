@@ -163,7 +163,7 @@ importers:
         version: 1.63.0
       resend:
         specifier: ^6.26.0
-        version: 6.26.0
+        version: 6.28.0
       svead:
         specifier: ^0.0.16
         version: 0.0.16(svelte@5.57.0(@typescript-eslint/types@8.69.0))(typescript@6.0.3)
@@ -2044,8 +2044,8 @@ packages:
     resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
     engines: {node: '>= 14.18.0'}
 
-  resend@6.26.0:
-    resolution: {integrity: sha512-vkrULozV5nGF8o7tyun/t0+qFgtPpn+cyRhVqeorhOsPUNDiSc/9p/pn8AprdHqJpYaTvftpnQgWurW++FkCdw==}
+  resend@6.28.0:
+    resolution: {integrity: sha512-xhRMQDZRjvJQ+sWJA3wFaoeVe5CpTxJJAfHnnULX8vifjj4QQLCLRn/AfnMZ4YmVhpFkuiX4LKxZCcj54l67Yw==}
     engines: {node: '>=20'}
     peerDependencies:
       '@react-email/render': '*'
@@ -3661,7 +3661,7 @@ snapshots:
 
   readdirp@4.1.2: {}
 
-  resend@6.26.0:
+  resend@6.28.0:
     dependencies:
       postal-mime: 2.7.5
       standardwebhooks: 1.0.0
