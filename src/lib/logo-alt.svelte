@@ -16,8 +16,8 @@
 	}: Props = $props();
 
 	// Square aspect ratio for QR code use
-	const height = size;
-	const width = size;
+	const height = $derived(size);
+	const width = $derived(size);
 </script>
 
 <svg

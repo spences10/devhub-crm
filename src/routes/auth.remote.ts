@@ -1,6 +1,6 @@
 import { command, form, getRequestEvent, query } from '$app/server';
-import { env } from '$env/dynamic/private';
-import { auth } from '$lib/server/auth';
+import * as env from '$app/env/private';
+import { auth } from '#lib/server/auth.ts';
 import { redirect } from '@sveltejs/kit';
 import * as v from 'valibot';
 

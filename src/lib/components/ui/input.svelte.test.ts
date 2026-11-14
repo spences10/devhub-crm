@@ -5,7 +5,7 @@ import Input from './input.svelte';
 
 describe('Input', () => {
 	it('should render text input with placeholder', async () => {
-		render(Input, {
+		await render(Input, {
 			type: 'text',
 			placeholder: 'Enter your name',
 		});
@@ -15,7 +15,7 @@ describe('Input', () => {
 	});
 
 	it('should display initial value', async () => {
-		render(Input, {
+		await render(Input, {
 			value: 'John Doe',
 		});
 
@@ -26,7 +26,7 @@ describe('Input', () => {
 	it('should handle user input', async () => {
 		const on_input = vi.fn();
 
-		render(Input, {
+		await render(Input, {
 			oninput: on_input,
 		});
 
@@ -37,7 +37,7 @@ describe('Input', () => {
 	});
 
 	it('should support email type', async () => {
-		render(Input, {
+		await render(Input, {
 			type: 'email',
 			placeholder: 'you@example.com',
 		});
@@ -47,7 +47,7 @@ describe('Input', () => {
 	});
 
 	it('should support password type', async () => {
-		render(Input, {
+		await render(Input, {
 			type: 'password',
 			placeholder: 'Password',
 		});
@@ -57,7 +57,7 @@ describe('Input', () => {
 	});
 
 	it('should support tel type', async () => {
-		render(Input, {
+		await render(Input, {
 			type: 'tel',
 			placeholder: '+1 (555) 123-4567',
 		});
@@ -67,7 +67,7 @@ describe('Input', () => {
 	});
 
 	it('should support date type', async () => {
-		render(Input, {
+		await render(Input, {
 			type: 'date',
 		});
 
@@ -76,7 +76,7 @@ describe('Input', () => {
 	});
 
 	it('should support datetime-local type', async () => {
-		render(Input, {
+		await render(Input, {
 			type: 'datetime-local',
 		});
 
@@ -87,7 +87,7 @@ describe('Input', () => {
 	});
 
 	it('should support number type', async () => {
-		render(Input, {
+		await render(Input, {
 			type: 'number',
 			min: 1,
 			max: 90,
@@ -100,7 +100,7 @@ describe('Input', () => {
 	});
 
 	it('should support url type', async () => {
-		render(Input, {
+		await render(Input, {
 			type: 'url',
 			placeholder: 'https://example.com',
 		});
@@ -110,7 +110,7 @@ describe('Input', () => {
 	});
 
 	it('should be required when required prop is true', async () => {
-		render(Input, {
+		await render(Input, {
 			required: true,
 			placeholder: 'Required field',
 		});
@@ -120,7 +120,7 @@ describe('Input', () => {
 	});
 
 	it('should be disabled when disabled prop is true', async () => {
-		render(Input, {
+		await render(Input, {
 			disabled: true,
 			placeholder: 'Disabled field',
 		});
@@ -130,7 +130,7 @@ describe('Input', () => {
 	});
 
 	it('should apply validator class when validator prop is true', async () => {
-		const { container } = render(Input, {
+		const { container } = await render(Input, {
 			validator: true,
 			type: 'email',
 		});
@@ -141,7 +141,7 @@ describe('Input', () => {
 	});
 
 	it('should not apply validator class by default', async () => {
-		const { container } = render(Input, {
+		const { container } = await render(Input, {
 			type: 'email',
 		});
 
@@ -150,7 +150,7 @@ describe('Input', () => {
 	});
 
 	it('should have name attribute', async () => {
-		render(Input, {
+		await render(Input, {
 			name: 'email',
 			placeholder: 'Email',
 		});
@@ -160,7 +160,7 @@ describe('Input', () => {
 	});
 
 	it('should apply minlength attribute', async () => {
-		render(Input, {
+		await render(Input, {
 			type: 'password',
 			minlength: 8,
 			placeholder: 'Password',
@@ -171,7 +171,7 @@ describe('Input', () => {
 	});
 
 	it('should apply maxlength attribute', async () => {
-		render(Input, {
+		await render(Input, {
 			maxlength: 30,
 			placeholder: 'Tag name',
 		});
@@ -183,7 +183,7 @@ describe('Input', () => {
 	it('should call oninput when user types', async () => {
 		const on_input = vi.fn();
 
-		render(Input, {
+		await render(Input, {
 			oninput: on_input,
 			placeholder: 'Test',
 		});
@@ -195,7 +195,7 @@ describe('Input', () => {
 	});
 
 	it('should have input wrapper with w-full class', async () => {
-		const { container } = render(Input, {});
+		const { container } = await render(Input, {});
 
 		const label = container.querySelector('label');
 		expect(label?.classList.contains('w-full')).toBe(true);
@@ -203,14 +203,14 @@ describe('Input', () => {
 	});
 
 	it('should have input with grow class', async () => {
-		const { container } = render(Input, {});
+		const { container } = await render(Input, {});
 
 		const input = container.querySelector('input');
 		expect(input?.classList.contains('grow')).toBe(true);
 	});
 
 	it('should apply custom class to input', async () => {
-		const { container } = render(Input, {
+		const { container } = await render(Input, {
 			class_name: 'custom-input-class',
 		});
 
@@ -221,19 +221,19 @@ describe('Input', () => {
 	});
 
 	it('should update value when rerendered', async () => {
-		const { rerender } = render(Input, {
+		const { rerender } = await render(Input, {
 			value: 'initial',
 		});
 
 		const input = page.getByRole('textbox');
 		await expect.element(input).toHaveValue('initial');
 
-		rerender({ value: 'updated' });
+		await rerender({ value: 'updated' });
 		await expect.element(input).toHaveValue('updated');
 	});
 
 	it('should handle numeric values', async () => {
-		const { container } = render(Input, {
+		const { container } = await render(Input, {
 			type: 'number',
 			value: 42,
 		});
@@ -250,7 +250,7 @@ describe('Input', () => {
 			return () => {}; // cleanup function
 		});
 
-		render(Input, {
+		await render(Input, {
 			attachment,
 		});
 

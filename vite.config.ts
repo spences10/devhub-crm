@@ -1,10 +1,20 @@
+import adapter from '@sveltejs/adapter-node';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import tailwindcss from '@tailwindcss/vite';
-import { playwright } from '@vitest/browser-playwright';
+import { playwright } from 'vite-plus/test/browser-playwright';
 import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from 'vite-plus';
 
-const config = defineConfig({
-	plugins: [tailwindcss(), sveltekit()],
+export default defineConfig({
+	plugins: [
+		tailwindcss(),
+		sveltekit({
+			adapter: adapter(),
+			preprocess: vitePreprocess(),
+			experimental: { remoteFunctions: true },
+			compilerOptions: { experimental: { async: true } },
+		}),
+	],
 	test: {
 		expect: { requireAssertions: true },
 		projects: [
@@ -15,7 +25,7 @@ const config = defineConfig({
 					browser: {
 						enabled: true,
 						provider: playwright(),
-						instances: [{ browser: 'chromium' }],
+						instances: [{ browser: 'chromium', headless: true }],
 					},
 					include: ['src/**/*.svelte.{test,spec}.{js,ts}'],
 					exclude: ['src/lib/server/**'],
@@ -33,10 +43,6 @@ const config = defineConfig({
 			},
 		],
 	},
-});
-
-export default {
-	...config,
 	fmt: {
 		useTabs: true,
 		singleQuote: true,
@@ -72,4 +78,4 @@ export default {
 			typeCheck: true,
 		},
 	},
-};
+});

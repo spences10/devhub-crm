@@ -1,9 +1,9 @@
 <script lang="ts">
-	import ConfirmDialog from '$lib/components/confirm-dialog.svelte';
-	import EmptyState from '$lib/components/empty-state.svelte';
-	import PageHeaderWithAction from '$lib/components/page-header-with-action.svelte';
-	import PageNav from '$lib/components/page-nav.svelte';
-	import { Edit, Refresh, Tag, Trash } from '$lib/icons';
+	import ConfirmDialog from '#lib/components/confirm-dialog.svelte';
+	import EmptyState from '#lib/components/empty-state.svelte';
+	import PageHeaderWithAction from '#lib/components/page-header-with-action.svelte';
+	import PageNav from '#lib/components/page-nav.svelte';
+	import { Edit, Refresh, Tag, Trash } from '#lib/icons/index.ts';
 	import {
 		create_tag,
 		delete_tag,
@@ -171,7 +171,7 @@
 	{#if !show_create_form}
 		<button
 			onclick={() => (show_create_form = true)}
-			class="btn gap-2 btn-sm btn-primary"
+			class="btn gap-2 btn-primary btn-sm"
 		>
 			<Tag size="20px" />
 			New Tag
@@ -307,7 +307,7 @@
 								<!-- Edit Name -->
 								<fieldset class="fieldset">
 									<legend class="fieldset-legend">Tag Name</legend>
-									<label class="input input-sm w-full">
+									<label class="input w-full input-sm">
 										<input
 											type="text"
 											bind:value={edit_name}
@@ -340,7 +340,7 @@
 
 									<div class="flex gap-1">
 										<label
-											class="input input-sm flex flex-1 items-center gap-1"
+											class="input flex flex-1 items-center gap-1 input-sm"
 										>
 											<input
 												type="text"
@@ -381,7 +381,7 @@
 									<button
 										onclick={handle_update_tag}
 										disabled={updating_tag || !edit_name.trim()}
-										class="btn flex-1 btn-xs btn-primary"
+										class="btn flex-1 btn-primary btn-xs"
 									>
 										{#if updating_tag}
 											<span class="loading loading-xs loading-spinner"
@@ -432,7 +432,7 @@
 										</button>
 										<button
 											onclick={() => handle_delete_click(tag.id)}
-											class="tooltip btn text-error btn-ghost btn-xs"
+											class="tooltip btn btn-ghost text-error btn-xs"
 											data-tip="Delete"
 										>
 											<Trash size="16px" />

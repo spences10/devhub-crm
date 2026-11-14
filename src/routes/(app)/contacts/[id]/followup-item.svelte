@@ -1,7 +1,7 @@
 <script lang="ts">
-	import ActivityCard from '$lib/components/activity-card.svelte';
-	import { Button } from '$lib/components/ui';
-	import { Calendar, Check, Edit, Trash } from '$lib/icons';
+	import ActivityCard from '#lib/components/activity-card.svelte';
+	import { Button } from '#lib/components/ui/index.ts';
+	import { Calendar, Check, Edit, Trash } from '#lib/icons/index.ts';
 	import {
 		cancel_delete_follow_up,
 		cancel_edit_follow_up,
@@ -11,12 +11,12 @@
 		handle_delete_follow_up_click,
 		handle_edit_follow_up_click,
 		save_edit_follow_up,
-	} from '$lib/state/contact-edit-state.svelte';
-	import type { FollowUp, UserPreferences } from '$lib/types/db';
+	} from '#lib/state/contact-edit-state.svelte.ts';
+	import type { FollowUp, UserPreferences } from '#lib/types/db.ts';
 	import {
 		format_due_date,
 		is_overdue,
-	} from '$lib/utils/date-helpers';
+	} from '#lib/utils/date-helpers.ts';
 
 	interface Props {
 		follow_up: FollowUp;
@@ -61,8 +61,7 @@
 				<textarea
 					bind:value={edit_state.edit_follow_up_note}
 					class="textarea h-24 w-full"
-					placeholder="Add a note..."
-				></textarea>
+					placeholder="Add a note..."></textarea>
 			</fieldset>
 
 			<div class="flex justify-end gap-2">

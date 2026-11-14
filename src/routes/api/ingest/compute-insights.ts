@@ -1,5 +1,4 @@
-import { db } from '$lib/server/db';
-import type { Contact, Interaction } from '$lib/types/db';
+import { db } from '#lib/server/db.ts';
 
 interface InteractionTypeBreakdown {
 	type: string;
@@ -279,7 +278,7 @@ const compute_reconnect_suggestions = async (
 				console.log(
 					`Found ${similar_interactions.length} AI-powered suggestions`,
 				);
-			} catch (error) {
+			} catch {
 				console.log(
 					'Embeddings not available, using simpler suggestions',
 				);

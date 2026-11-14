@@ -3,10 +3,10 @@ import {
 	get_current_user_id,
 	guarded_command,
 	guarded_form,
-} from '$lib/server/auth-helpers';
-import { db } from '$lib/server/db';
-import { fetch_github_contact } from '$lib/server/github';
-import type { Contact, SocialLink, Tag } from '$lib/types/db';
+} from '#lib/server/auth-helpers.ts';
+import { db } from '#lib/server/db.ts';
+import { fetch_github_contact } from '#lib/server/github.ts';
+import type { Contact, SocialLink, Tag } from '#lib/types/db.ts';
 import { redirect } from '@sveltejs/kit';
 import * as v from 'valibot';
 
@@ -375,7 +375,7 @@ export const get_recent_contacts = query(
 		v.pipe(v.number(), v.integer(), v.minValue(1), v.maxValue(100)),
 		5,
 	),
-	async (limit = 5): Promise<Contact[]> => {
+	async (limit): Promise<Contact[]> => {
 		const user_id = await get_current_user_id();
 
 		const stmt = db.prepare(`

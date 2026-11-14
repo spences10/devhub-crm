@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AttachmentFn } from '$lib/utils/keyboard-attachments';
+	import type { AttachmentFn } from '#lib/utils/keyboard-attachments.ts';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 
 	interface Props extends HTMLInputAttributes {

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import BaseCard from '$lib/components/base-card.svelte';
-	import SocialLinkIcon from '$lib/components/social-link.svelte';
-	import { ContactBook } from '$lib/icons';
-	import type { DateFormat } from '$lib/utils/date-helpers';
-	import { format_date } from '$lib/utils/date-helpers';
+	import BaseCard from '#lib/components/base-card.svelte';
+	import SocialLinkIcon from '#lib/components/social-link.svelte';
+	import { ContactBook } from '#lib/icons/index.ts';
+	import type { DateFormat } from '#lib/utils/date-helpers.ts';
+	import { format_date } from '#lib/utils/date-helpers.ts';
 
 	interface SocialLink {
 		platform: string;

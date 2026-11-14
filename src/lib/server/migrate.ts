@@ -58,7 +58,7 @@ export function run_migrations() {
 		migration_files = readdirSync(migrations_dir)
 			.filter((f) => f.endsWith('.sql'))
 			.sort();
-	} catch (error) {
+	} catch {
 		// Migrations directory doesn't exist or is empty
 		console.log('No migrations directory found');
 		return;

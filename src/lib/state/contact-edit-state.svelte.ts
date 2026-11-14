@@ -1,13 +1,13 @@
 // Re-export interaction constants for use in components
-import type { InteractionType } from '$lib/constants/interaction';
+import type { InteractionType } from '#lib/constants/interaction.ts';
 export {
 	INTERACTION_TYPE_COLORS,
 	INTERACTION_TYPE_ICONS,
 	INTERACTION_TYPES,
 	type InteractionType,
-} from '$lib/constants/interaction';
+} from '#lib/constants/interaction.ts';
 
-import type { FollowUp, Interaction } from '$lib/types/db';
+import type { FollowUp, Interaction } from '#lib/types/db.ts';
 import {
 	complete_follow_up,
 	delete_follow_up,

@@ -1,8 +1,8 @@
-import { env } from '$env/dynamic/private';
-import { db } from '$lib/server/db';
-import { run_migrations } from '$lib/server/migrate';
-import { themes } from '$lib/themes';
-import type { Handle } from '@sveltejs/kit';
+import * as env from '$app/env/private';
+import { db } from '#lib/server/db.ts';
+import { run_migrations } from '#lib/server/migrate.ts';
+import { themes } from '#lib/themes/index.ts';
+import type { Handle } from '@sveltejs/kit/hooks';
 import { sequence } from '@sveltejs/kit/hooks';
 import { readFileSync } from 'node:fs';
 import { seed_demo } from './routes/api/ingest/seed-demo';

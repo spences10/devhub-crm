@@ -41,7 +41,7 @@ import {
 	User,
 	Warning,
 	YouTube,
-} from '$lib/icons';
+} from '#lib/icons/index.ts';
 
 // Map of icon names to icon components
 const ICON_MAP: Record<string, any> = {

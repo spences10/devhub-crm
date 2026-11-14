@@ -1,11 +1,17 @@
 <script lang="ts">
-	import BaseCard from '$lib/components/base-card.svelte';
-	import PageNav from '$lib/components/page-nav.svelte';
-	import SocialLinksManager from '$lib/components/social-links-manager.svelte';
-	import { Field, Input, Radio, Textarea } from '$lib/components/ui';
-	import { Email, GitHub } from '$lib/icons';
-	import { seo_configs } from '$lib/seo';
-	import { generate_qr_code_data_url } from '$lib/utils/qr-code';
+	import { page } from '$app/state';
+	import BaseCard from '#lib/components/base-card.svelte';
+	import PageNav from '#lib/components/page-nav.svelte';
+	import SocialLinksManager from '#lib/components/social-links-manager.svelte';
+	import {
+		Field,
+		Input,
+		Radio,
+		Textarea,
+	} from '#lib/components/ui/index.ts';
+	import { Email, GitHub } from '#lib/icons/index.ts';
+	import { seo_configs } from '#lib/seo.ts';
+	import { generate_qr_code_data_url } from '#lib/utils/qr-code.ts';
 	import { Head } from 'svead';
 	import { onMount } from 'svelte';
 	import { is_demo_user } from '../layout.remote';
@@ -58,7 +64,7 @@
 	async function handle_generate_qr() {
 		generating_qr = true;
 		try {
-			const profile_url = await get_profile_qr_url();
+			const profile_url = await get_profile_qr_url(page.url.origin);
 			const data_url = await generate_qr_code_data_url(profile_url);
 			await save_qr_code({ qr_code_url: data_url });
 			qr_code_url = data_url;
@@ -229,7 +235,7 @@
 									{#if methods.has_github}
 										<button
 											onclick={handle_disconnect_github}
-											class="btn btn-outline btn-sm btn-error"
+											class="btn btn-outline btn-error btn-sm"
 										>
 											Disconnect
 										</button>
@@ -417,12 +423,12 @@
 				{#await social_links then links}
 					<SocialLinksManager
 						social_links={links || []}
-						on_add={async (platform, url) => {
+						on_add={async (platform: string, url: string) => {
 							await add_user_social_link({ platform, url }).updates(
 								social_links,
 							);
 						}}
-						on_delete={async (link_id) => {
+						on_delete={async (link_id: string) => {
 							await delete_user_social_link(link_id).updates(
 								social_links,
 							);

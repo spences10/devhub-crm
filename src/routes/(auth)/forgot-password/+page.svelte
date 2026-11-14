@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { PUBLIC_TURNSTILE_SITE_KEY } from '$env/static/public';
-	import { Button, Field, Input } from '$lib/components/ui';
-	import Logo from '$lib/logo.svelte';
-	import { seo_configs } from '$lib/seo';
+	import { PUBLIC_TURNSTILE_SITE_KEY } from '$app/env/public';
+	import { Button, Field, Input } from '#lib/components/ui/index.ts';
+	import Logo from '#lib/logo.svelte';
+	import { seo_configs } from '#lib/seo.ts';
 	import { Head } from 'svead';
 	import { Turnstile } from 'svelte-turnstile';
 	import { forgot_password } from '../../auth.remote';
@@ -41,8 +41,7 @@
 			: ''}
 	>
 		<Input
-			type="email"
-			name="email"
+			{...forgot_password.fields.email.as('email')}
 			placeholder="Email"
 			value={prefilled_email}
 			disabled={is_setup && !!prefilled_email}
@@ -52,9 +51,10 @@
 	</Field>
 
 	<input
-		type="hidden"
-		name="turnstile_token"
-		value={turnstile_token}
+		{...forgot_password.fields.turnstile_token.as(
+			'hidden',
+			turnstile_token,
+		)}
 	/>
 
 	<div class="mb-0 flex justify-center">

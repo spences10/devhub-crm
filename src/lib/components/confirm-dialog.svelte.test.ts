@@ -5,7 +5,7 @@ import ConfirmDialog from './confirm-dialog.svelte';
 
 describe('ConfirmDialog', () => {
 	it('should render default message in inline variant', async () => {
-		render(ConfirmDialog, {
+		await render(ConfirmDialog, {
 			is_inline: true,
 		});
 
@@ -15,7 +15,7 @@ describe('ConfirmDialog', () => {
 	});
 
 	it('should render custom message in inline variant', async () => {
-		render(ConfirmDialog, {
+		await render(ConfirmDialog, {
 			is_inline: true,
 			message: 'Delete this contact?',
 		});
@@ -26,7 +26,7 @@ describe('ConfirmDialog', () => {
 	});
 
 	it('should render confirm and cancel buttons with default labels', async () => {
-		render(ConfirmDialog, {});
+		await render(ConfirmDialog, {});
 
 		const confirmBtn = page.getByRole('button', {
 			name: 'Confirm',
@@ -38,7 +38,7 @@ describe('ConfirmDialog', () => {
 	});
 
 	it('should render custom button labels', async () => {
-		render(ConfirmDialog, {
+		await render(ConfirmDialog, {
 			confirm_label: 'Delete',
 			cancel_label: 'Keep',
 		});
@@ -53,7 +53,7 @@ describe('ConfirmDialog', () => {
 	it('should call on_confirm when confirm button is clicked', async () => {
 		const on_confirm = vi.fn();
 
-		render(ConfirmDialog, {
+		await render(ConfirmDialog, {
 			on_confirm,
 		});
 
@@ -68,7 +68,7 @@ describe('ConfirmDialog', () => {
 	it('should call on_cancel when cancel button is clicked', async () => {
 		const on_cancel = vi.fn();
 
-		render(ConfirmDialog, {
+		await render(ConfirmDialog, {
 			on_cancel,
 		});
 
@@ -84,7 +84,7 @@ describe('ConfirmDialog', () => {
 			await new Promise((resolve) => setTimeout(resolve, 100));
 		});
 
-		render(ConfirmDialog, {
+		await render(ConfirmDialog, {
 			on_confirm,
 		});
 
@@ -104,7 +104,7 @@ describe('ConfirmDialog', () => {
 			await new Promise((resolve) => setTimeout(resolve, 50));
 		});
 
-		render(ConfirmDialog, {
+		await render(ConfirmDialog, {
 			on_cancel,
 		});
 
@@ -117,7 +117,7 @@ describe('ConfirmDialog', () => {
 	});
 
 	it('should render inline variant', async () => {
-		render(ConfirmDialog, {
+		await render(ConfirmDialog, {
 			is_inline: true,
 			message: 'Inline message',
 		});
@@ -133,7 +133,7 @@ describe('ConfirmDialog', () => {
 	});
 
 	it('should hide icons when show_icons is false', async () => {
-		render(ConfirmDialog, {
+		await render(ConfirmDialog, {
 			show_icons: false,
 			confirm_label: 'Yes',
 			cancel_label: 'No',
@@ -150,7 +150,7 @@ describe('ConfirmDialog', () => {
 	});
 
 	it('should show icons by default', async () => {
-		render(ConfirmDialog, {
+		await render(ConfirmDialog, {
 			confirm_label: 'Delete',
 		});
 
@@ -163,7 +163,7 @@ describe('ConfirmDialog', () => {
 	});
 
 	it('should apply correct styling to confirm button', async () => {
-		render(ConfirmDialog, {});
+		await render(ConfirmDialog, {});
 
 		const confirmBtn = page.getByRole('button', {
 			name: 'Confirm',
@@ -174,7 +174,7 @@ describe('ConfirmDialog', () => {
 	it('should handle rapid clicks gracefully', async () => {
 		const on_confirm = vi.fn();
 
-		render(ConfirmDialog, {
+		await render(ConfirmDialog, {
 			on_confirm,
 		});
 

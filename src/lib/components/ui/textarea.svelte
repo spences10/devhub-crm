@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AttachmentFn } from '$lib/utils/keyboard-attachments';
+	import type { AttachmentFn } from '#lib/utils/keyboard-attachments.ts';
 	import type { HTMLTextareaAttributes } from 'svelte/elements';
 
 	interface Props extends HTMLTextareaAttributes {
@@ -29,5 +29,4 @@
 	{rows}
 	class={computed_classes}
 	{@attach attachment}
-	{...restProps}
-></textarea>
+	{...restProps}></textarea>

@@ -1,6 +1,6 @@
-import { env } from '$env/dynamic/private';
-import { db } from '$lib/server/db';
-import type { Contact, Interaction } from '$lib/types/db';
+import * as env from '$app/env/private';
+import { db } from '#lib/server/db.ts';
+import type { Contact, Interaction } from '#lib/types/db.ts';
 import { createHash } from 'node:crypto';
 
 const VOYAGE_API_KEY = env.VOYAGE_API_KEY;

@@ -1,12 +1,11 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
 	import { page } from '$app/state';
 	import {
 		PUBLIC_FATHOM_ID,
 		PUBLIC_FATHOM_URL,
-	} from '$env/static/public';
-	import favicon from '$lib/assets/favicon.svg';
-	import { seo_configs } from '$lib/seo';
+	} from '$app/env/public';
+	import favicon from '#lib/assets/favicon.svg';
+	import { seo_configs } from '#lib/seo.ts';
 	import * as Fathom from 'fathom-client';
 	import { Head } from 'svead';
 	import { onMount } from 'svelte';
@@ -22,7 +21,7 @@
 
 	// Track pageview on route change
 	$effect(() => {
-		(page.url.pathname, browser && Fathom.trackPageview());
+		if (page.url.pathname) Fathom.trackPageview();
 	});
 </script>
 

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import ActivityCard from '$lib/components/activity-card.svelte';
-	import { Button } from '$lib/components/ui';
-	import { Edit, Trash } from '$lib/icons';
+	import ActivityCard from '#lib/components/activity-card.svelte';
+	import { Button } from '#lib/components/ui/index.ts';
+	import { Edit, Trash } from '#lib/icons/index.ts';
 	import {
 		cancel_delete_interaction,
 		cancel_edit_interaction,
@@ -10,12 +10,15 @@
 		handle_delete_interaction_click,
 		handle_edit_interaction_click,
 		save_edit_interaction,
-	} from '$lib/state/contact-edit-state.svelte';
-	import type { Interaction, UserPreferences } from '$lib/types/db';
-	import type { InteractionType } from '$lib/types/interaction-type';
-	import { format_date } from '$lib/utils/date-helpers';
-	import { get_icon_component } from '$lib/utils/interaction-type-helpers';
-	import { ctrl_enter_callback } from '$lib/utils/keyboard-attachments';
+	} from '#lib/state/contact-edit-state.svelte.ts';
+	import type {
+		Interaction,
+		UserPreferences,
+	} from '#lib/types/db.ts';
+	import type { InteractionType } from '#lib/types/interaction-type.ts';
+	import { format_date } from '#lib/utils/date-helpers.ts';
+	import { get_icon_component } from '#lib/utils/interaction-type-helpers.ts';
+	import { ctrl_enter_callback } from '#lib/utils/keyboard-attachments.ts';
 	import { get_interaction_types } from '../../settings/interaction-types.remote';
 
 	interface Props {
@@ -90,8 +93,7 @@
 					placeholder="Add a note..."
 					{@attach ctrl_enter_callback(() =>
 						save_edit_interaction(contact_id),
-					)}
-				></textarea>
+					)}></textarea>
 			</fieldset>
 
 			<div class="flex justify-end gap-2">

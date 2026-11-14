@@ -1,4 +1,10 @@
-import { command, form, getRequestEvent, query } from '$app/server';
+import {
+	command,
+	form,
+	getRequestEvent,
+	query,
+	type RemoteForm,
+} from '$app/server';
 import { redirect } from '@sveltejs/kit';
 import type { ObjectSchema } from 'valibot';
 import { auth } from './auth';
@@ -58,7 +64,7 @@ export const guarded_form = <T extends ObjectSchema<any, any>>(
 		}
 
 		return fn(data);
-	});
+	}) as RemoteForm<import('valibot').InferInput<T>, any>;
 };
 
 /**

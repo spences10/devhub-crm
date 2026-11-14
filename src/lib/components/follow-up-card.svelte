@@ -1,11 +1,11 @@
 <script lang="ts">
-	import CompactItem from '$lib/components/compact-item.svelte';
-	import type { FollowUp } from '$lib/types/db';
+	import CompactItem from '#lib/components/compact-item.svelte';
+	import type { FollowUp } from '#lib/types/db.ts';
 	import {
 		type DateFormat,
 		format_due_date,
 		is_overdue,
-	} from '$lib/utils/date-helpers';
+	} from '#lib/utils/date-helpers.ts';
 	import { Button } from './ui';
 
 	interface Props {
@@ -31,10 +31,11 @@
 		on_delete,
 	}: Props = $props();
 
-	const overdue =
+	const overdue = $derived(
 		variant !== 'dashboard' &&
-		!follow_up.completed &&
-		is_overdue(follow_up.due_date);
+			!follow_up.completed &&
+			is_overdue(follow_up.due_date),
+	);
 </script>
 
 {#if variant === 'dashboard'}

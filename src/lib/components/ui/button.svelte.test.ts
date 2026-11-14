@@ -10,7 +10,7 @@ describe('Button', () => {
 			render: () => `<span>Submit</span>`,
 		}));
 
-		render(Button, { children });
+		await render(Button, { children });
 
 		const button = page.getByRole('button', { name: 'Submit' });
 		await expect.element(button).toBeInTheDocument();
@@ -22,7 +22,7 @@ describe('Button', () => {
 			render: () => `<span>Click me</span>`,
 		}));
 
-		render(Button, {
+		await render(Button, {
 			onclick: click_handler,
 			children,
 		});
@@ -38,7 +38,7 @@ describe('Button', () => {
 			render: () => `<span>Submit</span>`,
 		}));
 
-		render(Button, { loading: true, children });
+		await render(Button, { loading: true, children });
 
 		// Loading text should be visible
 		await expect
@@ -55,7 +55,7 @@ describe('Button', () => {
 			render: () => `<span>Submit</span>`,
 		}));
 
-		render(Button, {
+		await render(Button, {
 			disabled: true,
 			children,
 		});
@@ -69,7 +69,7 @@ describe('Button', () => {
 			render: () => `<span>Primary</span>`,
 		}));
 
-		render(Button, {
+		await render(Button, {
 			variant: 'primary',
 			children,
 		});
@@ -83,7 +83,7 @@ describe('Button', () => {
 			render: () => `<span>Outline</span>`,
 		}));
 
-		render(Button, {
+		await render(Button, {
 			variant: 'outline',
 			children,
 		});
@@ -97,7 +97,7 @@ describe('Button', () => {
 			render: () => `<span>Ghost</span>`,
 		}));
 
-		render(Button, {
+		await render(Button, {
 			variant: 'ghost',
 			children,
 		});
@@ -111,7 +111,7 @@ describe('Button', () => {
 			render: () => `<span>Delete</span>`,
 		}));
 
-		render(Button, {
+		await render(Button, {
 			variant: 'error',
 			children,
 		});
@@ -125,7 +125,7 @@ describe('Button', () => {
 			render: () => `<span>Tiny</span>`,
 		}));
 
-		render(Button, {
+		await render(Button, {
 			size: 'xs',
 			children,
 		});
@@ -139,7 +139,7 @@ describe('Button', () => {
 			render: () => `<span>Small</span>`,
 		}));
 
-		render(Button, {
+		await render(Button, {
 			size: 'sm',
 			children,
 		});
@@ -153,7 +153,7 @@ describe('Button', () => {
 			render: () => `<span>Full Width</span>`,
 		}));
 
-		render(Button, {
+		await render(Button, {
 			size: 'block',
 			children,
 		});
@@ -167,7 +167,7 @@ describe('Button', () => {
 			render: () => `<span>Submit Form</span>`,
 		}));
 
-		render(Button, {
+		await render(Button, {
 			type: 'submit',
 			children,
 		});
@@ -181,7 +181,7 @@ describe('Button', () => {
 			render: () => `<span>Click</span>`,
 		}));
 
-		render(Button, { children });
+		await render(Button, { children });
 
 		const button = page.getByRole('button', { name: 'Click' });
 		await expect.element(button).toHaveAttribute('type', 'button');
@@ -192,7 +192,7 @@ describe('Button', () => {
 			render: () => `<span>Custom</span>`,
 		}));
 
-		render(Button, {
+		await render(Button, {
 			class: 'my-custom-class',
 			children,
 		});
@@ -206,7 +206,7 @@ describe('Button', () => {
 			render: () => `<span>Combined</span>`,
 		}));
 
-		render(Button, {
+		await render(Button, {
 			variant: 'primary',
 			size: 'lg',
 			class: 'custom-spacing',
@@ -224,7 +224,7 @@ describe('Button', () => {
 			render: () => `<span>Update</span>`,
 		}));
 
-		const { rerender } = render(Button, {
+		const { rerender } = await render(Button, {
 			loading: false,
 			children,
 		});
@@ -234,7 +234,7 @@ describe('Button', () => {
 		await expect.element(button).toBeEnabled();
 
 		// Update to loading
-		rerender({ loading: true, children });
+		await rerender({ loading: true, children });
 
 		// Now disabled and showing loading state
 		await expect.element(button).toBeDisabled();
@@ -249,7 +249,7 @@ describe('Button', () => {
 			render: () => `<span>Save</span>`,
 		}));
 
-		render(Button, {
+		await render(Button, {
 			loading: true,
 			onclick: click_handler,
 			children,
@@ -266,7 +266,7 @@ describe('Button', () => {
 			render: () => `<span>Base</span>`,
 		}));
 
-		render(Button, { children });
+		await render(Button, { children });
 
 		const button = page.getByRole('button', { name: 'Base' });
 		await expect.element(button).toHaveClass(/btn/);

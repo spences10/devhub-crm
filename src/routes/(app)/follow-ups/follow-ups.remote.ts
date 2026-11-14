@@ -3,9 +3,9 @@ import {
 	get_current_user_id,
 	guarded_command,
 	guarded_form,
-} from '$lib/server/auth-helpers';
-import { db } from '$lib/server/db';
-import type { FollowUp } from '$lib/types/db';
+} from '#lib/server/auth-helpers.ts';
+import { db } from '#lib/server/db.ts';
+import type { FollowUp } from '#lib/types/db.ts';
 import { redirect } from '@sveltejs/kit';
 import * as v from 'valibot';
 
@@ -15,7 +15,7 @@ import * as v from 'valibot';
 export const get_all_follow_ups = query(
 	v.optional(v.string(), ''),
 	async (
-		search = '',
+		search,
 	): Promise<Array<FollowUp & { contact_name: string }>> => {
 		const user_id = await get_current_user_id();
 
@@ -99,7 +99,7 @@ export const get_upcoming_follow_ups = query(
 		v.pipe(v.number(), v.integer(), v.minValue(1), v.maxValue(365)),
 		7,
 	),
-	async (days = 7) => {
+	async (days) => {
 		const user_id = await get_current_user_id();
 
 		const now = Date.now();

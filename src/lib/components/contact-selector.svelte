@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Contact } from '$lib/types/db';
+	import type { Contact } from '#lib/types/db.ts';
 
 	interface Props {
 		contacts: Contact[];

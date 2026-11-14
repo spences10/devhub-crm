@@ -1,12 +1,12 @@
 import { getRequestEvent, query } from '$app/server';
-import { env } from '$env/dynamic/private';
-import { auth } from '$lib/server/auth';
+import * as env from '$app/env/private';
+import { auth } from '#lib/server/auth.ts';
 import {
 	get_current_user_id,
 	guarded_command,
 	guarded_form,
-} from '$lib/server/auth-helpers';
-import { db } from '$lib/server/db';
+} from '#lib/server/auth-helpers.ts';
+import { db } from '#lib/server/db.ts';
 import * as v from 'valibot';
 
 const DEMO_USER_EMAIL = env.DEMO_USER_EMAIL || 'demo@devhub.party';
@@ -555,23 +555,25 @@ export const save_qr_code = guarded_command(
 /**
  * Get profile URL for QR code generation
  */
-export const get_profile_qr_url = query(async (): Promise<string> => {
-	const user_id = await get_current_user_id();
-	const event = getRequestEvent();
+export const get_profile_qr_url = query(
+	v.string(),
+	async (origin): Promise<string> => {
+		const user_id = await get_current_user_id();
 
-	const profile_stmt = db.prepare(
-		'SELECT username FROM user_profiles WHERE user_id = ?',
-	);
-	const profile = profile_stmt.get(user_id) as
-		| { username: string }
-		| undefined;
+		const profile_stmt = db.prepare(
+			'SELECT username FROM user_profiles WHERE user_id = ?',
+		);
+		const profile = profile_stmt.get(user_id) as
+			| { username: string }
+			| undefined;
 
-	if (!profile) {
-		throw new Error('Profile not found');
-	}
+		if (!profile) {
+			throw new Error('Profile not found');
+		}
 
-	return `${event.url.origin}/@${profile.username}?qr=1`;
-});
+		return `${origin}/@${profile.username}?qr=1`;
+	},
+);
 
 /**
  * Delete user account permanently
@@ -586,7 +588,7 @@ export const delete_account = guarded_command(
 			'You must type DELETE to confirm account deletion',
 		),
 	),
-	async (confirmation: string) => {
+	async () => {
 		if (await is_demo_account()) {
 			throw new Error('Cannot delete demo account');
 		}

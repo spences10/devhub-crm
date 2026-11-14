@@ -7,7 +7,7 @@ describe('SearchBar', () => {
 	it('should render search input with placeholder', async () => {
 		const on_change = vi.fn();
 
-		render(SearchBar, {
+		await render(SearchBar, {
 			value: '',
 			placeholder: 'Search contacts...',
 			on_change,
@@ -20,7 +20,7 @@ describe('SearchBar', () => {
 	it('should display initial value', async () => {
 		const on_change = vi.fn();
 
-		render(SearchBar, {
+		await render(SearchBar, {
 			value: 'John Doe',
 			placeholder: 'Search...',
 			on_change,
@@ -33,7 +33,7 @@ describe('SearchBar', () => {
 	it('should call on_change when user types', async () => {
 		const on_change = vi.fn();
 
-		render(SearchBar, {
+		await render(SearchBar, {
 			value: '',
 			placeholder: 'Search...',
 			on_change,
@@ -50,7 +50,7 @@ describe('SearchBar', () => {
 	it('should have accessible fieldset structure', async () => {
 		const on_change = vi.fn();
 
-		render(SearchBar, {
+		await render(SearchBar, {
 			value: '',
 			placeholder: 'Search...',
 			on_change,
@@ -69,7 +69,7 @@ describe('SearchBar', () => {
 	it('should update value when rerendered', async () => {
 		const on_change = vi.fn();
 
-		const { rerender } = render(SearchBar, {
+		const { rerender } = await render(SearchBar, {
 			value: '',
 			placeholder: 'Search...',
 			on_change,
@@ -81,7 +81,7 @@ describe('SearchBar', () => {
 		await expect.element(input).toHaveValue('');
 
 		// Update value
-		rerender({
+		await rerender({
 			value: 'updated search',
 			placeholder: 'Search...',
 			on_change,
@@ -94,7 +94,7 @@ describe('SearchBar', () => {
 	it('should handle rapid input changes', async () => {
 		const on_change = vi.fn();
 
-		render(SearchBar, {
+		await render(SearchBar, {
 			value: '',
 			placeholder: 'Search...',
 			on_change,
@@ -119,7 +119,7 @@ describe('SearchBar', () => {
 	it('should clear search when value is empty', async () => {
 		const on_change = vi.fn();
 
-		render(SearchBar, {
+		await render(SearchBar, {
 			value: 'initial search',
 			placeholder: 'Search...',
 			on_change,

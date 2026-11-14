@@ -2,9 +2,9 @@ import { query } from '$app/server';
 import {
 	get_current_user_id,
 	guarded_command,
-} from '$lib/server/auth-helpers';
-import { db } from '$lib/server/db';
-import type { InteractionType } from '$lib/types/interaction-type';
+} from '#lib/server/auth-helpers.ts';
+import { db } from '#lib/server/db.ts';
+import type { InteractionType } from '#lib/types/interaction-type.ts';
 import * as v from 'valibot';
 
 /**
@@ -85,7 +85,7 @@ export const create_interaction_type = guarded_command(
 			);
 
 			return { success: true, id };
-		} catch (error) {
+		} catch {
 			return {
 				error: 'Failed to create interaction type',
 			};
@@ -154,7 +154,7 @@ export const update_interaction_type = guarded_command(
 			);
 
 			return { success: true };
-		} catch (error) {
+		} catch {
 			return { error: 'Failed to update interaction type' };
 		}
 	},
@@ -217,7 +217,7 @@ export const delete_interaction_type = guarded_command(
 		try {
 			stmt.run(id);
 			return { success: true };
-		} catch (error) {
+		} catch {
 			return { error: 'Failed to delete interaction type' };
 		}
 	},

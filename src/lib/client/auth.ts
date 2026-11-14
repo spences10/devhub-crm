@@ -1,4 +1,4 @@
-import { browser, dev } from '$app/environment';
+import { browser, dev } from '$app/env';
 import { createAuthClient } from 'better-auth/svelte';
 
 export const auth_client = createAuthClient({

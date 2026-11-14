@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { Button } from '$lib/components/ui';
-	import Logo from '$lib/logo.svelte';
+	import { Button } from '#lib/components/ui/index.ts';
+	import Logo from '#lib/logo.svelte';
 
 	const mode = page.url.searchParams.get('mode');
 	const is_setup = mode === 'setup';

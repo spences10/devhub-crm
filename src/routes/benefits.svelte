@@ -1,5 +1,9 @@
 <script lang="ts">
-	import { CheckCircleFill, ContactBook, GitHub } from '$lib/icons';
+	import {
+		CheckCircleFill,
+		ContactBook,
+		GitHub,
+	} from '#lib/icons/index.ts';
 
 	type Props = {
 		benefits: string[];

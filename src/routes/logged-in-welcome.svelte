@@ -9,8 +9,8 @@
 		StarFill,
 		Target,
 		ThumbsUp,
-	} from '$lib/icons';
-	import Logo from '$lib/logo.svelte';
+	} from '#lib/icons/index.ts';
+	import Logo from '#lib/logo.svelte';
 
 	type Props = {
 		user: { name: string; email: string; image?: string | null };

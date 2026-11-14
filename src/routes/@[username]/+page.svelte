@@ -1,18 +1,18 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import Surface from '$lib/components/surface.svelte';
-	import { Button } from '$lib/components/ui';
+	import Surface from '#lib/components/surface.svelte';
+	import { Button } from '#lib/components/ui/index.ts';
 	import {
 		ContactBook,
 		Globe,
 		LocationPin,
 		Phone,
 		Rocket,
-	} from '$lib/icons';
+	} from '#lib/icons/index.ts';
 	import {
 		get_platform_icon,
 		get_platform_label,
-	} from '$lib/utils/social-icons';
+	} from '#lib/utils/social-icons.ts';
 	import { get_current_user } from '../auth.remote';
 	import { add_profile_as_contact } from './add-contact.remote';
 	import { get_profile } from './profile.remote';

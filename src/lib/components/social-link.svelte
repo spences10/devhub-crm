@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { get_platform_icon } from '$lib/utils/social-icons';
+	import { get_platform_icon } from '#lib/utils/social-icons.ts';
 
 	interface Props {
 		platform: string;

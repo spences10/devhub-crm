@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
-	import PageHeaderWithAction from '$lib/components/page-header-with-action.svelte';
-	import PageNav from '$lib/components/page-nav.svelte';
+	import PageHeaderWithAction from '#lib/components/page-header-with-action.svelte';
+	import PageNav from '#lib/components/page-nav.svelte';
 	import {
 		get_error_description,
 		get_error_title,
-	} from '$lib/utils/error-messages';
+	} from '#lib/utils/error-messages.ts';
 	import { get_current_user } from '../../../../auth.remote';
 
 	const status = $derived(page.status);
@@ -46,7 +46,7 @@
 	<div class="navbar bg-base-100 shadow-lg">
 		<div class="flex-1">
 			<a href="/dashboard">
-				<div class="btn text-xl btn-ghost">DevHub CRM</div>
+				<div class="btn btn-ghost text-xl">DevHub CRM</div>
 			</a>
 		</div>
 		<div class="flex-none gap-2">
@@ -73,7 +73,7 @@
 							</div>
 						</div>
 						<ul
-							class="dropdown-content menu z-[1] mt-3 w-52 menu-sm rounded-box bg-base-100 p-2 shadow"
+							class="menu dropdown-content z-[1] mt-3 w-52 menu-sm rounded-box bg-base-100 p-2 shadow"
 						>
 							<li class="menu-title">
 								<span>{user.name}</span>
@@ -92,7 +92,7 @@
 
 	<main class="mx-auto max-w-6xl p-4 sm:p-6 md:p-8 lg:p-10">
 		<PageHeaderWithAction title="Import from GitHub">
-			<a href="/contacts" class="btn btn-ghost btn-outline">
+			<a href="/contacts" class="btn btn-outline btn-ghost">
 				Back to Contacts
 			</a>
 		</PageHeaderWithAction>
@@ -159,7 +159,7 @@
 						<a href="/contacts/import/github" class="btn btn-primary">
 							Try Again
 						</a>
-						<a href="/contacts" class="btn btn-ghost btn-outline">
+						<a href="/contacts" class="btn btn-outline btn-ghost">
 							Back to Contacts
 						</a>
 						{#if status === 401}

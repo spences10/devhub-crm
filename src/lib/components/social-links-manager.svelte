@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Trash } from '$lib/icons';
+	import { Trash } from '#lib/icons/index.ts';
 	import ConfirmDialog from './confirm-dialog.svelte';
 	import SocialLinkIcon from './social-link.svelte';
 	import Surface from './surface.svelte';

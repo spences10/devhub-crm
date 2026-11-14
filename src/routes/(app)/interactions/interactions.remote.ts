@@ -3,9 +3,9 @@ import {
 	get_current_user_id,
 	guarded_command,
 	guarded_form,
-} from '$lib/server/auth-helpers';
-import { db, run_in_transaction } from '$lib/server/db';
-import type { Interaction } from '$lib/types/db';
+} from '#lib/server/auth-helpers.ts';
+import { db, run_in_transaction } from '#lib/server/db.ts';
+import type { Interaction } from '#lib/types/db.ts';
 import { redirect } from '@sveltejs/kit';
 import * as v from 'valibot';
 import {
@@ -61,7 +61,7 @@ export const get_interactions = query.batch(
 export const get_all_interactions = query(
 	v.optional(v.string(), ''),
 	async (
-		search = '',
+		search,
 	): Promise<Array<Interaction & { contact_name: string }>> => {
 		const user_id = await get_current_user_id();
 

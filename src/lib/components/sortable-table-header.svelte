@@ -1,5 +1,5 @@
 <script lang="ts" generics="T extends string">
-	import { Arrow } from '$lib/icons';
+	import { Arrow } from '#lib/icons/index.ts';
 
 	interface Props {
 		label: string;

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Rocket, Sparkles } from '$lib/icons';
-	import Logo from '$lib/logo.svelte';
+	import { Rocket, Sparkles } from '#lib/icons/index.ts';
+	import Logo from '#lib/logo.svelte';
 
 	type Props = {
 		on_demo_login: () => void;
@@ -74,7 +74,7 @@
 			</button>
 			<a
 				href="/login"
-				class="responsive-btn btn gap-2 border-2 border-primary-content text-primary-content shadow-lg transition-all duration-300 btn-outline hover:scale-105 hover:bg-primary-content/10"
+				class="responsive-btn btn gap-2 border-2 border-primary-content btn-outline text-primary-content shadow-lg transition-all duration-300 hover:scale-105 hover:bg-primary-content/10"
 			>
 				Sign In
 			</a>

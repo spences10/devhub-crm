@@ -1,11 +1,11 @@
 <script lang="ts">
-	import BaseCard from '$lib/components/base-card.svelte';
-	import EmptyState from '$lib/components/empty-state.svelte';
-	import FollowUpCard from '$lib/components/follow-up-card.svelte';
-	import InteractionCard from '$lib/components/interaction-card.svelte';
-	import PageNav from '$lib/components/page-nav.svelte';
-	import { Cross, Sparkles, Warning } from '$lib/icons';
-	import { seo_configs } from '$lib/seo';
+	import BaseCard from '#lib/components/base-card.svelte';
+	import EmptyState from '#lib/components/empty-state.svelte';
+	import FollowUpCard from '#lib/components/follow-up-card.svelte';
+	import InteractionCard from '#lib/components/interaction-card.svelte';
+	import PageNav from '#lib/components/page-nav.svelte';
+	import { Cross, Sparkles, Warning } from '#lib/icons/index.ts';
+	import { seo_configs } from '#lib/seo.ts';
 	import { Head } from 'svead';
 	import { get_user_preferences } from '../settings/settings.remote';
 	import {
@@ -27,15 +27,15 @@
 	<h1 class="text-3xl font-bold">Dashboard</h1>
 
 	<div class="flex gap-2">
-		<a href="/contacts/new" class="btn btn-sm btn-primary">
+		<a href="/contacts/new" class="btn btn-primary btn-sm">
 			<Cross size="10px" type="add" class_names="-mr-1" />
 			Contact
 		</a>
-		<a href="/interactions/new" class="btn btn-sm btn-secondary">
+		<a href="/interactions/new" class="btn btn-secondary btn-sm">
 			<Cross size="10px" type="add" class_names="-mr-1" />
 			Interaction
 		</a>
-		<a href="/follow-ups/new" class="btn btn-sm btn-accent">
+		<a href="/follow-ups/new" class="btn btn-accent btn-sm">
 			<Cross size="10px" type="add" class_names="-mr-1" />
 			Follow-up
 		</a>

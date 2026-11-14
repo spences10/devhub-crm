@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { PUBLIC_TURNSTILE_SITE_KEY } from '$env/static/public';
-	import { auth_client } from '$lib/client/auth';
-	import AuthFeatureCard from '$lib/components/auth-feature-card.svelte';
-	import AuthHeroPanel from '$lib/components/auth-hero-panel.svelte';
-	import { Button, Field, Input } from '$lib/components/ui';
-	import { CheckCircleFill } from '$lib/icons';
-	import Github from '$lib/icons/github.svelte';
-	import Logo from '$lib/logo.svelte';
-	import { seo_configs } from '$lib/seo';
+	import { PUBLIC_TURNSTILE_SITE_KEY } from '$app/env/public';
+	import { auth_client } from '#lib/client/auth.ts';
+	import AuthFeatureCard from '#lib/components/auth-feature-card.svelte';
+	import AuthHeroPanel from '#lib/components/auth-hero-panel.svelte';
+	import { Button, Field, Input } from '#lib/components/ui/index.ts';
+	import { CheckCircleFill } from '#lib/icons/index.ts';
+	import Github from '#lib/icons/github.svelte';
+	import Logo from '#lib/logo.svelte';
+	import { seo_configs } from '#lib/seo.ts';
 	import { Head } from 'svead';
 	import { Turnstile } from 'svelte-turnstile';
 	import { register } from '../../auth.remote';
@@ -106,14 +106,16 @@
 			{#snippet formField(
 				label: string,
 				type: string,
-				name: string,
+				name: 'name' | 'email' | 'password',
 				placeholder: string,
 				hint?: string,
 			)}
 				<Field legend={label} helper_text={hint}>
 					<Input
 						{type}
-						{name}
+						{...register.fields[name].as(
+							type as 'text' | 'email' | 'password',
+						)}
 						{placeholder}
 						required
 						validator
@@ -143,9 +145,10 @@
 				)}
 
 				<input
-					type="hidden"
-					name="turnstile_token"
-					value={turnstile_token}
+					{...register.fields.turnstile_token.as(
+						'hidden',
+						turnstile_token,
+					)}
 				/>
 
 				<div class="mb-0 flex justify-center">

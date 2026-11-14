@@ -1,18 +1,18 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
-	import ConfirmDialog from '$lib/components/confirm-dialog.svelte';
-	import PageHeaderWithAction from '$lib/components/page-header-with-action.svelte';
-	import PageNav from '$lib/components/page-nav.svelte';
-	import { Edit, StarFill, Trash } from '$lib/icons';
-	import { edit_state } from '$lib/state/contact-edit-state.svelte';
+	import ConfirmDialog from '#lib/components/confirm-dialog.svelte';
+	import PageHeaderWithAction from '#lib/components/page-header-with-action.svelte';
+	import PageNav from '#lib/components/page-nav.svelte';
+	import { Edit, StarFill, Trash } from '#lib/icons/index.ts';
+	import { edit_state } from '#lib/state/contact-edit-state.svelte.ts';
 	import {
 		calculate_health_score,
 		get_action_cards,
 		get_health_status,
 		get_initials,
 		get_stats_cards,
-	} from '$lib/utils/contact-calculations';
+	} from '#lib/utils/contact-calculations.ts';
 	import { get_contact_follow_ups } from '../../follow-ups/follow-ups.remote';
 	import { get_interactions } from '../../interactions/interactions.remote';
 	import { get_user_preferences } from '../../settings/settings.remote';
@@ -89,7 +89,7 @@
 		<div class="flex gap-2">
 			<a
 				href="/contacts/{contact.id}/edit"
-				class="tooltip btn text-info btn-ghost btn-sm"
+				class="tooltip btn btn-ghost text-info btn-sm"
 				data-tip="Edit"
 				aria-label="Edit contact"
 			>
@@ -105,7 +105,7 @@
 			{:else}
 				<button
 					onclick={handle_delete_click}
-					class="tooltip btn text-error btn-ghost btn-sm"
+					class="tooltip btn btn-ghost text-error btn-sm"
 					data-tip="Delete"
 					aria-label="Delete contact"
 				>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { Button, Field, Input } from '$lib/components/ui';
-	import { Trash } from '$lib/icons';
+	import { Button, Field, Input } from '#lib/components/ui/index.ts';
+	import { Trash } from '#lib/icons/index.ts';
 	import type { delete_account } from './profile.remote';
 
 	interface Props {
@@ -41,7 +41,7 @@
 			await on_delete(confirmation);
 			// Navigate to home - user is deleted and signed out
 			// The home page will re-fetch and see no user
-			await goto('/', { invalidateAll: true });
+			await goto('/', { refreshAll: true });
 		} catch (err) {
 			console.error('Failed to delete account:', err);
 			error_message =
@@ -94,7 +94,7 @@
 
 <!-- Modal -->
 {#if modal_open}
-	<dialog class="modal-open modal">
+	<dialog class="modal modal-open">
 		<div class="modal-box w-11/12 max-w-md">
 			<h3 class="text-lg font-bold text-error">Delete Account</h3>
 			<p class="py-4">

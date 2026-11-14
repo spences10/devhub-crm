@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { Button, Field, Input } from '$lib/components/ui';
-	import Logo from '$lib/logo.svelte';
-	import { seo_configs } from '$lib/seo';
+	import { Button, Field, Input } from '#lib/components/ui/index.ts';
+	import Logo from '#lib/logo.svelte';
+	import { seo_configs } from '#lib/seo.ts';
 	import { Head } from 'svead';
 	import { reset_password } from '../../auth.remote';
 
@@ -38,15 +38,14 @@
 	</div>
 {:else}
 	<form {...reset_password} class="space-y-4">
-		<input type="hidden" name="token" value={token} />
+		<input {...reset_password.fields.token.as('hidden', token)} />
 
 		<Field
 			legend="New Password"
 			helper_text="Must be at least 8 characters"
 		>
 			<Input
-				type="password"
-				name="password"
+				{...reset_password.fields.password.as('password')}
 				placeholder="New password"
 				required
 				validator

@@ -1,11 +1,11 @@
 <script lang="ts">
-	import BaseCard from '$lib/components/base-card.svelte';
-	import ContactFormFields from '$lib/components/contact-form-fields.svelte';
-	import FormActions from '$lib/components/form-actions.svelte';
-	import PageHeaderWithAction from '$lib/components/page-header-with-action.svelte';
-	import PageNav from '$lib/components/page-nav.svelte';
-	import SocialLinksList from '$lib/components/social-links-list.svelte';
-	import { Button, Field, Input } from '$lib/components/ui';
+	import BaseCard from '#lib/components/base-card.svelte';
+	import ContactFormFields from '#lib/components/contact-form-fields.svelte';
+	import FormActions from '#lib/components/form-actions.svelte';
+	import PageHeaderWithAction from '#lib/components/page-header-with-action.svelte';
+	import PageNav from '#lib/components/page-nav.svelte';
+	import SocialLinksList from '#lib/components/social-links-list.svelte';
+	import { Button, Field, Input } from '#lib/components/ui/index.ts';
 	import {
 		create_contact,
 		fetch_github_data,
@@ -123,12 +123,15 @@
 		<form {...create_contact} class="space-y-4">
 			<!-- Hidden field for social links -->
 			<input
-				type="hidden"
-				name="social_links"
-				value={JSON.stringify(pending_social_links)}
+				{...create_contact.fields.social_links.as(
+					'hidden',
+					JSON.stringify(pending_social_links),
+				)}
 			/>
 			<!-- Hidden field for avatar URL -->
-			<input type="hidden" name="avatar_url" value={avatar_url} />
+			<input
+				{...create_contact.fields.avatar_url.as('hidden', avatar_url)}
+			/>
 
 			<ContactFormFields
 				{name}

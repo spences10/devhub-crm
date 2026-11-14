@@ -6,7 +6,7 @@ import {
 	Settings,
 	Tag,
 	User,
-} from '$lib/icons';
+} from '#lib/icons/index.ts';
 import type { Component } from 'svelte';
 
 export interface NavItem {

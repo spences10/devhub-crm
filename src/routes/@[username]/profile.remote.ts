@@ -1,8 +1,8 @@
 import { command, getRequestEvent, query } from '$app/server';
-import { env } from '$env/dynamic/private';
-import { auth } from '$lib/server/auth';
-import { db } from '$lib/server/db';
-import type { UserProfile, UserSocialLink } from '$lib/types/db';
+import * as env from '$app/env/private';
+import { auth } from '#lib/server/auth.ts';
+import { db } from '#lib/server/db.ts';
+import type { UserProfile, UserSocialLink } from '#lib/types/db.ts';
 import * as v from 'valibot';
 
 const DEMO_USER_EMAIL = env.DEMO_USER_EMAIL || 'demo@devhub.party';

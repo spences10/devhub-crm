@@ -2,9 +2,9 @@ import { query } from '$app/server';
 import {
 	get_current_user_id,
 	guarded_command,
-} from '$lib/server/auth-helpers';
-import { db } from '$lib/server/db';
-import type { UserPreferences } from '$lib/types/db';
+} from '#lib/server/auth-helpers.ts';
+import { db } from '#lib/server/db.ts';
+import type { UserPreferences } from '#lib/types/db.ts';
 import * as v from 'valibot';
 
 /**

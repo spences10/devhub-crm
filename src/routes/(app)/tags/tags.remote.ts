@@ -2,9 +2,9 @@ import { query } from '$app/server';
 import {
 	get_current_user_id,
 	guarded_command,
-} from '$lib/server/auth-helpers';
-import { db } from '$lib/server/db';
-import type { Tag } from '$lib/types/db';
+} from '#lib/server/auth-helpers.ts';
+import { db } from '#lib/server/db.ts';
+import type { Contact, Tag } from '#lib/types/db.ts';
 import * as v from 'valibot';
 
 /**
@@ -318,7 +318,7 @@ export const get_tag_contacts = query.batch(
 		const all_contacts = contacts_stmt.all(
 			...tag_ids,
 			user_id,
-		) as Array<any & { tag_id: string }>;
+		) as Array<Contact & { tag_id: string }>;
 
 		// Return lookup function
 		return (tag_id) => {

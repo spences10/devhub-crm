@@ -1,26 +1,26 @@
 <script lang="ts">
-	import ActivityCard from '$lib/components/activity-card.svelte';
-	import BaseCard from '$lib/components/base-card.svelte';
-	import EmptyState from '$lib/components/empty-state.svelte';
-	import FilterTabs from '$lib/components/filter-tabs.svelte';
-	import ItemCount from '$lib/components/item-count.svelte';
-	import PageHeaderWithAction from '$lib/components/page-header-with-action.svelte';
-	import PageNav from '$lib/components/page-nav.svelte';
-	import SearchBar from '$lib/components/search-bar.svelte';
+	import ActivityCard from '#lib/components/activity-card.svelte';
+	import BaseCard from '#lib/components/base-card.svelte';
+	import EmptyState from '#lib/components/empty-state.svelte';
+	import FilterTabs from '#lib/components/filter-tabs.svelte';
+	import ItemCount from '#lib/components/item-count.svelte';
+	import PageHeaderWithAction from '#lib/components/page-header-with-action.svelte';
+	import PageNav from '#lib/components/page-nav.svelte';
+	import SearchBar from '#lib/components/search-bar.svelte';
 	import {
 		Calendar,
 		Check,
 		CircleBack,
 		Edit,
 		Trash,
-	} from '$lib/icons';
-	import { seo_configs } from '$lib/seo';
-	import type { FollowUp } from '$lib/types/db';
+	} from '#lib/icons/index.ts';
+	import { seo_configs } from '#lib/seo.ts';
+	import type { FollowUp } from '#lib/types/db.ts';
 	import {
 		format_date,
 		format_due_date,
 		is_overdue,
-	} from '$lib/utils/date-helpers';
+	} from '#lib/utils/date-helpers.ts';
 	import { format } from 'date-fns';
 	import { Head } from 'svead';
 	import { get_user_preferences } from '../settings/settings.remote';
@@ -177,7 +177,7 @@
 <FilterTabs
 	options={filter_options}
 	active_filter={filter}
-	on_filter_change={(f) => (filter = f)}
+	on_filter_change={(f: typeof filter) => (filter = f)}
 />
 
 <!-- Follow-ups List -->
@@ -260,8 +260,7 @@
 										<textarea
 											bind:value={edit_note}
 											class="textarea h-24 w-full"
-											placeholder="Add a note..."
-										></textarea>
+											placeholder="Add a note..."></textarea>
 									</fieldset>
 								</div>
 
@@ -273,7 +272,7 @@
 										Cancel
 									</button>
 									<button
-										class="btn btn-sm btn-primary"
+										class="btn btn-primary btn-sm"
 										onclick={save_edit}
 									>
 										Save
@@ -319,7 +318,7 @@
 							{:else}
 								<button
 									onclick={() => handle_complete(follow_up)}
-									class="btn gap-1 text-success btn-ghost btn-xs"
+									class="btn gap-1 btn-ghost text-success btn-xs"
 									aria-label="Complete follow-up"
 								>
 									<Check size="16px" />
@@ -335,7 +334,7 @@
 								Edit
 							</button>
 							<button
-								class="btn gap-1 text-error btn-ghost btn-xs"
+								class="btn gap-1 btn-ghost text-error btn-xs"
 								aria-label="Delete follow-up"
 								onclick={(e) => handle_delete_click(e, follow_up)}
 							>

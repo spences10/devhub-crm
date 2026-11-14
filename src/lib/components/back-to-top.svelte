@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Arrow } from '$lib/icons';
+	import { Arrow } from '#lib/icons/index.ts';
 
 	let show_scroll_button = $state(false);
 	let last_scroll_top = $state(0);

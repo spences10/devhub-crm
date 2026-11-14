@@ -1,4 +1,4 @@
-import { env } from '$env/dynamic/private';
+import * as env from '$app/env/private';
 import { json, type RequestHandler } from '@sveltejs/kit';
 import { backup_database } from './backup-database';
 import { compute_insights } from './compute-insights';

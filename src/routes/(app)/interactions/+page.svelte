@@ -1,18 +1,18 @@
 <script lang="ts">
-	import ActivityCard from '$lib/components/activity-card.svelte';
-	import BaseCard from '$lib/components/base-card.svelte';
-	import EmptyState from '$lib/components/empty-state.svelte';
-	import FilterTabs from '$lib/components/filter-tabs.svelte';
-	import ItemCount from '$lib/components/item-count.svelte';
-	import PageHeaderWithAction from '$lib/components/page-header-with-action.svelte';
-	import PageNav from '$lib/components/page-nav.svelte';
-	import SearchBar from '$lib/components/search-bar.svelte';
-	import { Edit, Trash } from '$lib/icons';
-	import { seo_configs } from '$lib/seo';
-	import type { Interaction } from '$lib/types/db';
-	import type { InteractionType } from '$lib/types/interaction-type';
-	import { format_date } from '$lib/utils/date-helpers';
-	import { get_icon_component } from '$lib/utils/interaction-type-helpers';
+	import ActivityCard from '#lib/components/activity-card.svelte';
+	import BaseCard from '#lib/components/base-card.svelte';
+	import EmptyState from '#lib/components/empty-state.svelte';
+	import FilterTabs from '#lib/components/filter-tabs.svelte';
+	import ItemCount from '#lib/components/item-count.svelte';
+	import PageHeaderWithAction from '#lib/components/page-header-with-action.svelte';
+	import PageNav from '#lib/components/page-nav.svelte';
+	import SearchBar from '#lib/components/search-bar.svelte';
+	import { Edit, Trash } from '#lib/icons/index.ts';
+	import { seo_configs } from '#lib/seo.ts';
+	import type { Interaction } from '#lib/types/db.ts';
+	import type { InteractionType } from '#lib/types/interaction-type.ts';
+	import { format_date } from '#lib/utils/date-helpers.ts';
+	import { get_icon_component } from '#lib/utils/interaction-type-helpers.ts';
 	import { Head } from 'svead';
 	import { get_interaction_types } from '../settings/interaction-types.remote';
 	import { get_user_preferences } from '../settings/settings.remote';
@@ -153,7 +153,7 @@
 	<FilterTabs
 		options={['all', ...types.map((t) => t.value)]}
 		active_filter={filter}
-		on_filter_change={(f) => (filter = f)}
+		on_filter_change={(f: typeof filter) => (filter = f)}
 	/>
 {/await}
 
@@ -249,8 +249,7 @@
 										<textarea
 											bind:value={edit_note}
 											class="textarea h-24 w-full"
-											placeholder="Add a note..."
-										></textarea>
+											placeholder="Add a note..."></textarea>
 									</fieldset>
 								</div>
 
@@ -264,7 +263,7 @@
 									</button>
 									<button
 										type="button"
-										class="btn btn-sm btn-primary"
+										class="btn btn-primary btn-sm"
 										onclick={(e) => save_edit(e)}
 									>
 										Save
@@ -301,7 +300,7 @@
 								Edit
 							</button>
 							<button
-								class="btn gap-1 text-error btn-ghost btn-xs"
+								class="btn gap-1 btn-ghost text-error btn-xs"
 								aria-label="Delete interaction"
 								onclick={(e) => handle_delete_click(e, interaction)}
 							>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BaseCard from '$lib/components/base-card.svelte';
+	import BaseCard from '#lib/components/base-card.svelte';
 
 	interface Option {
 		value: string;

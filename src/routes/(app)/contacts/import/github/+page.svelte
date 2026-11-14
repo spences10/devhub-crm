@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { auth_client } from '$lib/client/auth';
-	import PageHeaderWithAction from '$lib/components/page-header-with-action.svelte';
-	import PageNav from '$lib/components/page-nav.svelte';
-	import { Button } from '$lib/components/ui';
-	import { seo_configs } from '$lib/seo';
+	import { auth_client } from '#lib/client/auth.ts';
+	import PageHeaderWithAction from '#lib/components/page-header-with-action.svelte';
+	import PageNav from '#lib/components/page-nav.svelte';
+	import { Button } from '#lib/components/ui/index.ts';
+	import { seo_configs } from '#lib/seo.ts';
 	import { Head } from 'svead';
 	import GithubConnectionStatus from './github-connection-status.svelte';
 	import {

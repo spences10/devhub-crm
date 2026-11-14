@@ -1,7 +1,12 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { Calendar, Contacts, Dashboard, GitHub } from '$lib/icons';
-	import { seo_configs } from '$lib/seo';
+	import {
+		Calendar,
+		Contacts,
+		Dashboard,
+		GitHub,
+	} from '#lib/icons/index.ts';
+	import { seo_configs } from '#lib/seo.ts';
 	import { Head } from 'svead';
 	import { demo_login, get_current_user } from './auth.remote';
 	import Benefits from './benefits.svelte';

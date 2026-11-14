@@ -1,10 +1,10 @@
 <script lang="ts">
-	import BaseCard from '$lib/components/base-card.svelte';
-	import PageNav from '$lib/components/page-nav.svelte';
-	import { Field, Input, Select } from '$lib/components/ui';
-	import { seo_configs } from '$lib/seo';
-	import { themes } from '$lib/themes';
-	import { format_date } from '$lib/utils/date-helpers';
+	import BaseCard from '#lib/components/base-card.svelte';
+	import PageNav from '#lib/components/page-nav.svelte';
+	import { Field, Input, Select } from '#lib/components/ui/index.ts';
+	import { seo_configs } from '#lib/seo.ts';
+	import { themes } from '#lib/themes/index.ts';
+	import { format_date } from '#lib/utils/date-helpers.ts';
 	import { Head } from 'svead';
 	import { onMount } from 'svelte';
 	import InteractionTypesManager from './interaction-types-manager.svelte';

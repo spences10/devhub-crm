@@ -6,7 +6,7 @@
  *
  * @example
  * ```svelte
- * import { Button, Input, Field } from '$lib/components/ui';
+ * import { Button, Input, Field } from '#lib/components/ui/index.ts';
  *
  * <Field legend="Email">
  *   <Input type="email" name="email" required validator />

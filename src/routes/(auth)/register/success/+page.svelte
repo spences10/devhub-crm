@@ -1,11 +1,11 @@
 <script lang="ts">
-	import AuthHeroPanel from '$lib/components/auth-hero-panel.svelte';
+	import AuthHeroPanel from '#lib/components/auth-hero-panel.svelte';
 	import {
 		CheckCircleFill,
 		Email,
 		InformationCircle,
-	} from '$lib/icons';
-	import Logo from '$lib/logo.svelte';
+	} from '#lib/icons/index.ts';
+	import Logo from '#lib/logo.svelte';
 
 	const steps = [
 		{ text: 'Check your inbox (and spam folder)', stagger: '4' },

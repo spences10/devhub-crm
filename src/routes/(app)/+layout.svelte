@@ -1,11 +1,12 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
-	import BackToTop from '$lib/components/back-to-top.svelte';
-	import BottomNavDock from '$lib/components/bottom-nav-dock.svelte';
-	import { nav_items } from '$lib/config/navigation';
-	import { Sparkles } from '$lib/icons';
-	import Logo from '$lib/logo.svelte';
-	import { generate_qr_code_data_url } from '$lib/utils/qr-code';
+	import BackToTop from '#lib/components/back-to-top.svelte';
+	import BottomNavDock from '#lib/components/bottom-nav-dock.svelte';
+	import { nav_items } from '#lib/config/navigation.ts';
+	import { Sparkles } from '#lib/icons/index.ts';
+	import Logo from '#lib/logo.svelte';
+	import { generate_qr_code_data_url } from '#lib/utils/qr-code.ts';
 	import { onDestroy, onMount } from 'svelte';
 	import { get_current_user, logout } from '../auth.remote';
 	import { ensure_profile, is_demo_user } from './layout.remote';
@@ -74,7 +75,7 @@
 			const qr_url = await get_user_qr_code();
 			if (!qr_url) {
 				// Generate QR code silently in background
-				const profile_url = await get_profile_qr_url();
+				const profile_url = await get_profile_qr_url(page.url.origin);
 				const data_url = await generate_qr_code_data_url(profile_url);
 				await save_qr_code({ qr_code_url: data_url });
 			}
@@ -134,7 +135,7 @@
 								</div>
 								<ul
 									tabindex="0"
-									class="dropdown-content menu z-1 mt-3 w-52 menu-sm rounded-box bg-base-100 p-2 shadow"
+									class="menu dropdown-content z-1 mt-3 w-52 menu-sm rounded-box bg-base-100 p-2 shadow"
 								>
 									<li class="menu-title">
 										<span>{user.name}</span>
@@ -189,7 +190,7 @@
 							</div>
 							<a
 								href="/register"
-								class="btn gap-2 btn-sm btn-primary hover:scale-105"
+								class="btn gap-2 btn-primary btn-sm hover:scale-105"
 							>
 								Sign Up Free
 							</a>

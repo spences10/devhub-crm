@@ -160,8 +160,7 @@ wrapper. Apply classes directly to the `<textarea>` element.
 		name="notes"
 		class="textarea w-full"
 		rows="4"
-		placeholder="Enter your notes"
-	></textarea>
+		placeholder="Enter your notes"></textarea>
 </fieldset>
 ```
 
@@ -365,7 +364,7 @@ wrapper. Apply classes directly to the `<textarea>` element.
 ### Small
 
 ```svelte
-<label class="input input-sm w-full">
+<label class="input w-full input-sm">
 	<input type="text" class="grow" />
 </label>
 ```
@@ -381,7 +380,7 @@ wrapper. Apply classes directly to the `<textarea>` element.
 ### Large
 
 ```svelte
-<label class="input input-lg w-full">
+<label class="input w-full input-lg">
 	<input type="text" class="grow" />
 </label>
 ```
@@ -409,18 +408,18 @@ wrapper. Apply classes directly to the `<textarea>` element.
 ### Left Icon
 
 ```svelte
-<label class="input w-full flex items-center gap-2">
-  <svg class="h-4 w-4 opacity-70" /* ... */><!-- icon --></svg>
-  <input type="text" class="grow" placeholder="Search" />
+<label class="input flex w-full items-center gap-2">
+	<svg class="h-4 w-4 opacity-70" /* ... */><!-- icon --></svg>
+	<input type="text" class="grow" placeholder="Search" />
 </label>
 ```
 
 ### Right Icon
 
 ```svelte
-<label class="input w-full flex items-center gap-2">
-  <input type="text" class="grow" placeholder="Email" />
-  <svg class="h-4 w-4 opacity-70" /* ... */><!-- icon --></svg>
+<label class="input flex w-full items-center gap-2">
+	<input type="text" class="grow" placeholder="Email" />
+	<svg class="h-4 w-4 opacity-70" /* ... */><!-- icon --></svg>
 </label>
 ```
 

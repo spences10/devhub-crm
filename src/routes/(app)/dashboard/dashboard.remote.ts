@@ -1,7 +1,7 @@
 import { query } from '$app/server';
-import { get_current_user_id } from '$lib/server/auth-helpers';
-import { db } from '$lib/server/db';
-import type { FollowUp, Interaction } from '$lib/types/db';
+import { get_current_user_id } from '#lib/server/auth-helpers.ts';
+import { db } from '#lib/server/db.ts';
+import type { FollowUp, Interaction } from '#lib/types/db.ts';
 import { addDays } from 'date-fns';
 import * as v from 'valibot';
 

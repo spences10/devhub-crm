@@ -1,6 +1,6 @@
-import { env } from '$env/dynamic/private';
-import { auth } from '$lib/server/auth';
-import { db } from '$lib/server/db';
+import * as env from '$app/env/private';
+import { auth } from '#lib/server/auth.ts';
+import { db } from '#lib/server/db.ts';
 import fs from 'node:fs';
 import path from 'node:path';
 

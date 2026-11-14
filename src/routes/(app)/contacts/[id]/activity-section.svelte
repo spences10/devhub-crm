@@ -1,6 +1,6 @@
 <script lang="ts">
-	import EmptyState from '$lib/components/empty-state.svelte';
-	import { Calendar, Message, Sparkles } from '$lib/icons';
+	import EmptyState from '#lib/components/empty-state.svelte';
+	import { Calendar, Message, Sparkles } from '#lib/icons/index.ts';
 	import {
 		edit_state,
 		handle_complete_follow_up,
@@ -8,14 +8,14 @@
 		handle_edit_follow_up_click,
 		handle_edit_interaction_click,
 		handle_delete_interaction_click,
-	} from '$lib/state/contact-edit-state.svelte';
+	} from '#lib/state/contact-edit-state.svelte.ts';
 	import FollowupItem from './followup-item.svelte';
 	import InteractionItem from './interaction-item.svelte';
 	import type {
 		Interaction,
 		FollowUp,
 		UserPreferences,
-	} from '$lib/types/db';
+	} from '#lib/types/db.ts';
 
 	interface Props {
 		interactions: Interaction[];
@@ -74,7 +74,7 @@
 						</h3>
 						<a
 							href="/follow-ups/new?contact_id={contact_id}"
-							class="btn btn-sm btn-primary"
+							class="btn btn-primary btn-sm"
 						>
 							Add Follow-up
 						</a>
@@ -103,7 +103,7 @@
 						</h3>
 						<a
 							href="/interactions/new?contact_id={contact_id}"
-							class="btn btn-sm btn-primary"
+							class="btn btn-primary btn-sm"
 						>
 							Log Interaction
 						</a>

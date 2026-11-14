@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import EmptyState from '$lib/components/empty-state.svelte';
-	import ItemCount from '$lib/components/item-count.svelte';
-	import PageHeaderWithAction from '$lib/components/page-header-with-action.svelte';
-	import PageNav from '$lib/components/page-nav.svelte';
-	import SortableTableHeader from '$lib/components/sortable-table-header.svelte';
-	import { GitHub, StarFill } from '$lib/icons';
-	import { seo_configs } from '$lib/seo';
-	import type { Contact } from '$lib/types/db';
+	import EmptyState from '#lib/components/empty-state.svelte';
+	import ItemCount from '#lib/components/item-count.svelte';
+	import PageHeaderWithAction from '#lib/components/page-header-with-action.svelte';
+	import PageNav from '#lib/components/page-nav.svelte';
+	import SortableTableHeader from '#lib/components/sortable-table-header.svelte';
+	import { GitHub, StarFill } from '#lib/icons/index.ts';
+	import { seo_configs } from '#lib/seo.ts';
+	import type { Contact } from '#lib/types/db.ts';
 	import { Head } from 'svead';
 	import { get_user_preferences } from '../settings/settings.remote';
 	import { get_contacts } from './contacts.remote';

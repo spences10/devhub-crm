@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { page_nav_items } from '$lib/config/navigation';
+	import { page_nav_items } from '#lib/config/navigation.ts';
 
 	function is_active(path: string) {
 		return (

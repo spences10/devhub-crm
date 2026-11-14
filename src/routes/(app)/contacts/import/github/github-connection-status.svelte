@@ -1,7 +1,7 @@
 <script lang="ts">
-	import BaseCard from '$lib/components/base-card.svelte';
-	import Surface from '$lib/components/surface.svelte';
-	import { Button } from '$lib/components/ui';
+	import BaseCard from '#lib/components/base-card.svelte';
+	import Surface from '#lib/components/surface.svelte';
+	import { Button } from '#lib/components/ui/index.ts';
 	import { format } from 'date-fns';
 
 	interface ConnectionStatus {
@@ -188,7 +188,7 @@
 								</div>
 								<div class="mt-4 flex gap-2">
 									<button
-										class="btn btn-sm btn-primary"
+										class="btn btn-primary btn-sm"
 										onclick={on_load_following}
 									>
 										Load from Cache
@@ -242,8 +242,7 @@
 									>
 										<li>
 											This will make approximately <strong
-												>{github_state.estimates.api_calls} GitHub API
-												requests</strong
+												>{github_state.estimates.api_calls} GitHub API requests</strong
 											>
 										</li>
 										<li>
@@ -275,7 +274,7 @@
 								</div>
 								<div class="mt-4 flex gap-2">
 									<button
-										class="btn btn-sm btn-primary"
+										class="btn btn-primary btn-sm"
 										onclick={on_load_following}
 									>
 										I Understand, Proceed

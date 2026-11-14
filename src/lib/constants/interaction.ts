@@ -4,7 +4,7 @@ import {
 	Email,
 	Message,
 	TakeawayCoffee,
-} from '$lib/icons';
+} from '#lib/icons/index.ts';
 
 export type InteractionType =
 	| 'meeting'

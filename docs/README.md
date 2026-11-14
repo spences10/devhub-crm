@@ -397,7 +397,8 @@ For code used across multiple components:
 2. Export functions with clear names
 3. Import with `$lib` alias:
    ```svelte
-   import {(format_due_date, is_overdue)} from '$lib/utils/date-helpers';
+   import {(format_due_date, is_overdue)} from
+   '$lib/utils/date-helpers';
    ```
 
 **Example utilities:**

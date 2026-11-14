@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Refresh, Trash } from '$lib/icons';
-	import type { Tag } from '$lib/types/db';
+	import { Refresh, Trash } from '#lib/icons/index.ts';
+	import type { Tag } from '#lib/types/db.ts';
 	import ConfirmDialog from './confirm-dialog.svelte';
 	import Surface from './surface.svelte';
 	import { Button, Field, Input } from './ui';

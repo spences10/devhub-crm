@@ -5,7 +5,7 @@ import Radio from './radio.svelte';
 
 describe('Radio', () => {
 	it('should render radio button without label', async () => {
-		render(Radio, {
+		await render(Radio, {
 			name: 'format',
 			value: '24h',
 		});
@@ -15,7 +15,7 @@ describe('Radio', () => {
 	});
 
 	it('should render radio button with label', async () => {
-		render(Radio, {
+		await render(Radio, {
 			name: 'format',
 			value: '24h',
 			label: '24-hour',
@@ -26,7 +26,7 @@ describe('Radio', () => {
 	});
 
 	it('should be unchecked by default', async () => {
-		render(Radio, {
+		await render(Radio, {
 			name: 'format',
 			value: '24h',
 		});
@@ -36,7 +36,7 @@ describe('Radio', () => {
 	});
 
 	it('should be checked when checked prop is true', async () => {
-		render(Radio, {
+		await render(Radio, {
 			name: 'format',
 			value: '24h',
 			checked: true,
@@ -47,7 +47,7 @@ describe('Radio', () => {
 	});
 
 	it('should have required name attribute', async () => {
-		render(Radio, {
+		await render(Radio, {
 			name: 'time_format',
 			value: '12h',
 		});
@@ -59,7 +59,7 @@ describe('Radio', () => {
 	});
 
 	it('should have value attribute', async () => {
-		render(Radio, {
+		await render(Radio, {
 			name: 'format',
 			value: '24h',
 		});
@@ -71,7 +71,7 @@ describe('Radio', () => {
 	it('should call onchange when selected', async () => {
 		const on_change = vi.fn();
 
-		render(Radio, {
+		await render(Radio, {
 			name: 'format',
 			value: '24h',
 			onchange: on_change,
@@ -84,7 +84,7 @@ describe('Radio', () => {
 	});
 
 	it('should be disabled when disabled prop is true', async () => {
-		render(Radio, {
+		await render(Radio, {
 			name: 'format',
 			value: '24h',
 			disabled: true,
@@ -95,7 +95,7 @@ describe('Radio', () => {
 	});
 
 	it('should have radio and radio-primary classes', async () => {
-		const { container } = render(Radio, {
+		const { container } = await render(Radio, {
 			name: 'format',
 			value: '24h',
 		});
@@ -106,7 +106,7 @@ describe('Radio', () => {
 	});
 
 	it('should apply custom class', async () => {
-		const { container } = render(Radio, {
+		const { container } = await render(Radio, {
 			name: 'format',
 			value: '24h',
 			class_name: 'radio-accent',
@@ -117,7 +117,7 @@ describe('Radio', () => {
 	});
 
 	it('should wrap radio in label when label prop is provided', async () => {
-		const { container } = render(Radio, {
+		const { container } = await render(Radio, {
 			name: 'format',
 			value: '24h',
 			label: '24-hour format',
@@ -131,7 +131,7 @@ describe('Radio', () => {
 	});
 
 	it('should have cursor-pointer on label wrapper', async () => {
-		const { container } = render(Radio, {
+		const { container } = await render(Radio, {
 			name: 'format',
 			value: '24h',
 			label: 'Select me',
@@ -142,7 +142,7 @@ describe('Radio', () => {
 	});
 
 	it('should not render label element when no label prop', async () => {
-		const { container } = render(Radio, {
+		const { container } = await render(Radio, {
 			name: 'format',
 			value: '24h',
 		});
@@ -153,7 +153,7 @@ describe('Radio', () => {
 	});
 
 	it('should update checked state when rerendered', async () => {
-		const { rerender } = render(Radio, {
+		const { rerender } = await render(Radio, {
 			name: 'format',
 			value: '24h',
 			checked: false,
@@ -162,7 +162,7 @@ describe('Radio', () => {
 		const radio = page.getByRole('radio');
 		await expect.element(radio).not.toBeChecked();
 
-		rerender({
+		await rerender({
 			name: 'format',
 			value: '24h',
 			checked: true,
@@ -171,7 +171,7 @@ describe('Radio', () => {
 	});
 
 	it('should handle time format radio use case', async () => {
-		render(Radio, {
+		await render(Radio, {
 			name: 'time_format',
 			value: '24h',
 			label: '24-hour',
@@ -187,7 +187,7 @@ describe('Radio', () => {
 	});
 
 	it('should handle date format radio use case', async () => {
-		render(Radio, {
+		await render(Radio, {
 			name: 'date_format',
 			value: 'YYYY-MM-DD',
 			label: 'YYYY-MM-DD',
@@ -202,7 +202,7 @@ describe('Radio', () => {
 	});
 
 	it('should handle contact sort radio use case', async () => {
-		render(Radio, {
+		await render(Radio, {
 			name: 'default_contact_sort',
 			value: 'name',
 			label: 'Name (A-Z)',

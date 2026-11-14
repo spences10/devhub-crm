@@ -1,5 +1,5 @@
-import { db, run_in_transaction } from '$lib/server/db';
-import type { Contact, Interaction } from '$lib/types/db';
+import { db, run_in_transaction } from '#lib/server/db.ts';
+import type { Contact, Interaction } from '#lib/types/db.ts';
 import {
 	compute_content_hash,
 	create_embeddings_batch,

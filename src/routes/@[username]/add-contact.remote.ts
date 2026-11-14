@@ -1,8 +1,8 @@
 import {
 	get_current_user_id,
 	guarded_command,
-} from '$lib/server/auth-helpers';
-import { db } from '$lib/server/db';
+} from '#lib/server/auth-helpers.ts';
+import { db } from '#lib/server/db.ts';
 import * as v from 'valibot';
 import { get_contacts } from '../(app)/contacts/contacts.remote';
 

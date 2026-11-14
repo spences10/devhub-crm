@@ -1,4 +1,4 @@
-import { env } from '$env/dynamic/private';
+import * as env from '$app/env/private';
 import { Resend } from 'resend';
 
 // Use a placeholder during build, actual key at runtime

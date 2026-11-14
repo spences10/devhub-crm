@@ -1,6 +1,6 @@
 <script lang="ts">
-	import BaseCard from '$lib/components/base-card.svelte';
-	import { Lightbulb } from '$lib/icons';
+	import BaseCard from '#lib/components/base-card.svelte';
+	import { Lightbulb } from '#lib/icons/index.ts';
 
 	interface Props {
 		notes: string | null;

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { auth_client } from '$lib/client/auth';
-	import { Button, Field, Input } from '$lib/components/ui';
-	import Github from '$lib/icons/github.svelte';
-	import Logo from '$lib/logo.svelte';
-	import { seo_configs } from '$lib/seo';
+	import { auth_client } from '#lib/client/auth.ts';
+	import { Button, Field, Input } from '#lib/components/ui/index.ts';
+	import Github from '#lib/icons/github.svelte';
+	import Logo from '#lib/logo.svelte';
+	import { seo_configs } from '#lib/seo.ts';
 	import { Head } from 'svead';
 	import { login } from '../../auth.remote';
 
@@ -42,8 +42,7 @@
 <form {...login} class="space-y-4">
 	<Field legend="Email">
 		<Input
-			type="email"
-			name="email"
+			{...login.fields.email.as('email')}
 			placeholder="Email"
 			required
 			validator
@@ -52,8 +51,7 @@
 
 	<Field legend="Password">
 		<Input
-			type="password"
-			name="password"
+			{...login.fields.password.as('password')}
 			placeholder="Password"
 			required
 			validator

@@ -1,7 +1,7 @@
 import { command, query } from '$app/server';
-import { get_current_user_id } from '$lib/server/auth-helpers';
-import { db } from '$lib/server/db';
-import { github_profile_to_contact } from '$lib/server/github';
+import { get_current_user_id } from '#lib/server/auth-helpers.ts';
+import { db } from '#lib/server/db.ts';
+import { github_profile_to_contact } from '#lib/server/github.ts';
 import {
 	check_github_scopes,
 	clear_cache,
@@ -12,7 +12,7 @@ import {
 	get_following_count,
 	get_rate_limit_status,
 	save_profiles_to_cache,
-} from '$lib/server/github-following';
+} from '#lib/server/github-following.ts';
 import * as v from 'valibot';
 
 /**

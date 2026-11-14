@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Button } from './ui';
-	import { Check, Cross } from '$lib/icons';
+	import { Check, Cross } from '#lib/icons/index.ts';
 
 	interface Props {
 		message?: string;

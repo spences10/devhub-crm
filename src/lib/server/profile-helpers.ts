@@ -1,4 +1,4 @@
-import type { UserProfile } from '$lib/types/db';
+import type { UserProfile } from '#lib/types/db.ts';
 import { db } from './db';
 
 /**

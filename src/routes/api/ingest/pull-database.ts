@@ -1,5 +1,5 @@
-import { env } from '$env/dynamic/private';
-import { get_database_path } from '$lib/server/db-path';
+import * as env from '$app/env/private';
+import { get_database_path } from '#lib/server/db-path.ts';
 import { format } from 'date-fns';
 import fs from 'node:fs/promises';
 import { backup, DatabaseSync } from 'node:sqlite';
@@ -62,7 +62,9 @@ export const pull_database = async () => {
 		);
 
 		try {
-			const current_db = new DatabaseSync(db_path, { readOnly: true });
+			const current_db = new DatabaseSync(db_path, {
+				readOnly: true,
+			});
 			try {
 				await backup(current_db, current_backup_path);
 				console.log(

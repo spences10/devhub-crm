@@ -5,7 +5,7 @@ import Textarea from './textarea.svelte';
 
 describe('Textarea', () => {
 	it('should render textarea with placeholder', async () => {
-		render(Textarea, {
+		await render(Textarea, {
 			placeholder: 'Enter your notes...',
 		});
 
@@ -14,7 +14,7 @@ describe('Textarea', () => {
 	});
 
 	it('should display initial value', async () => {
-		render(Textarea, {
+		await render(Textarea, {
 			value: 'Initial content',
 		});
 
@@ -25,7 +25,7 @@ describe('Textarea', () => {
 	it('should handle user input', async () => {
 		const on_input = vi.fn();
 
-		render(Textarea, {
+		await render(Textarea, {
 			oninput: on_input,
 		});
 
@@ -36,7 +36,7 @@ describe('Textarea', () => {
 	});
 
 	it('should set rows attribute', async () => {
-		render(Textarea, {
+		await render(Textarea, {
 			rows: 6,
 		});
 
@@ -45,14 +45,14 @@ describe('Textarea', () => {
 	});
 
 	it('should default to 4 rows', async () => {
-		render(Textarea, {});
+		await render(Textarea, {});
 
 		const textarea = page.getByRole('textbox');
 		await expect.element(textarea).toHaveAttribute('rows', '4');
 	});
 
 	it('should be required when required prop is true', async () => {
-		render(Textarea, {
+		await render(Textarea, {
 			required: true,
 		});
 
@@ -61,7 +61,7 @@ describe('Textarea', () => {
 	});
 
 	it('should be disabled when disabled prop is true', async () => {
-		render(Textarea, {
+		await render(Textarea, {
 			disabled: true,
 		});
 
@@ -70,7 +70,7 @@ describe('Textarea', () => {
 	});
 
 	it('should have name attribute', async () => {
-		render(Textarea, {
+		await render(Textarea, {
 			name: 'notes',
 		});
 
@@ -79,7 +79,7 @@ describe('Textarea', () => {
 	});
 
 	it('should apply maxlength attribute', async () => {
-		render(Textarea, {
+		await render(Textarea, {
 			maxlength: 500,
 		});
 
@@ -92,7 +92,7 @@ describe('Textarea', () => {
 	it('should call oninput when user types', async () => {
 		const on_input = vi.fn();
 
-		render(Textarea, {
+		await render(Textarea, {
 			oninput: on_input,
 		});
 
@@ -103,7 +103,7 @@ describe('Textarea', () => {
 	});
 
 	it('should have textarea base class and w-full', async () => {
-		const { container } = render(Textarea, {});
+		const { container } = await render(Textarea, {});
 
 		const textarea = container.querySelector('textarea');
 		expect(textarea?.classList.contains('textarea')).toBe(true);
@@ -111,7 +111,7 @@ describe('Textarea', () => {
 	});
 
 	it('should apply custom class', async () => {
-		const { container } = render(Textarea, {
+		const { container } = await render(Textarea, {
 			class_name: 'custom-textarea-class',
 		});
 
@@ -122,14 +122,14 @@ describe('Textarea', () => {
 	});
 
 	it('should update value when rerendered', async () => {
-		const { rerender } = render(Textarea, {
+		const { rerender } = await render(Textarea, {
 			value: 'initial content',
 		});
 
 		const textarea = page.getByRole('textbox');
 		await expect.element(textarea).toHaveValue('initial content');
 
-		rerender({ value: 'updated content' });
+		await rerender({ value: 'updated content' });
 		await expect.element(textarea).toHaveValue('updated content');
 	});
 
@@ -138,7 +138,7 @@ describe('Textarea', () => {
 			return () => {}; // cleanup function
 		});
 
-		render(Textarea, {
+		await render(Textarea, {
 			attachment,
 		});
 
@@ -149,7 +149,7 @@ describe('Textarea', () => {
 	it('should handle multiline content', async () => {
 		const multiline_text = 'Line 1\nLine 2\nLine 3';
 
-		render(Textarea, {
+		await render(Textarea, {
 			value: multiline_text,
 		});
 
@@ -158,7 +158,7 @@ describe('Textarea', () => {
 	});
 
 	it('should handle empty value', async () => {
-		render(Textarea, {
+		await render(Textarea, {
 			value: '',
 		});
 
@@ -167,7 +167,7 @@ describe('Textarea', () => {
 	});
 
 	it('should allow clearing content', async () => {
-		render(Textarea, {
+		await render(Textarea, {
 			value: 'some content',
 		});
 

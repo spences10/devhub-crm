@@ -1,4 +1,4 @@
-import { get_database_path } from '$lib/server/db-path';
+import { get_database_path } from '#lib/server/db-path.ts';
 import { format } from 'date-fns';
 import fs from 'node:fs/promises';
 import { backup, DatabaseSync } from 'node:sqlite';

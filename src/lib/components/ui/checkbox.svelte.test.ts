@@ -5,14 +5,14 @@ import Checkbox from './checkbox.svelte';
 
 describe('Checkbox', () => {
 	it('should render checkbox without label', async () => {
-		render(Checkbox, {});
+		await render(Checkbox, {});
 
 		const checkbox = page.getByRole('checkbox');
 		await expect.element(checkbox).toBeInTheDocument();
 	});
 
 	it('should render checkbox with label', async () => {
-		render(Checkbox, {
+		await render(Checkbox, {
 			label: 'Mark as VIP',
 		});
 
@@ -23,14 +23,14 @@ describe('Checkbox', () => {
 	});
 
 	it('should be unchecked by default', async () => {
-		render(Checkbox, {});
+		await render(Checkbox, {});
 
 		const checkbox = page.getByRole('checkbox');
 		await expect.element(checkbox).not.toBeChecked();
 	});
 
 	it('should be checked when checked prop is true', async () => {
-		render(Checkbox, {
+		await render(Checkbox, {
 			checked: true,
 		});
 
@@ -39,7 +39,7 @@ describe('Checkbox', () => {
 	});
 
 	it('should toggle when clicked', async () => {
-		render(Checkbox, {
+		await render(Checkbox, {
 			checked: false,
 		});
 
@@ -53,7 +53,7 @@ describe('Checkbox', () => {
 	it('should call onchange when checked state changes', async () => {
 		const on_change = vi.fn();
 
-		render(Checkbox, {
+		await render(Checkbox, {
 			onchange: on_change,
 		});
 
@@ -64,7 +64,7 @@ describe('Checkbox', () => {
 	});
 
 	it('should be disabled when disabled prop is true', async () => {
-		render(Checkbox, {
+		await render(Checkbox, {
 			disabled: true,
 		});
 
@@ -73,7 +73,7 @@ describe('Checkbox', () => {
 	});
 
 	it('should have name attribute', async () => {
-		render(Checkbox, {
+		await render(Checkbox, {
 			name: 'is_vip',
 		});
 
@@ -82,7 +82,7 @@ describe('Checkbox', () => {
 	});
 
 	it('should have checkbox base class', async () => {
-		const { container } = render(Checkbox, {});
+		const { container } = await render(Checkbox, {});
 
 		const checkbox = container.querySelector(
 			'input[type="checkbox"]',
@@ -91,7 +91,7 @@ describe('Checkbox', () => {
 	});
 
 	it('should apply custom class', async () => {
-		const { container } = render(Checkbox, {
+		const { container } = await render(Checkbox, {
 			class_name: 'checkbox-primary',
 		});
 
@@ -104,7 +104,7 @@ describe('Checkbox', () => {
 	});
 
 	it('should wrap checkbox in label when label prop is provided', async () => {
-		const { container } = render(Checkbox, {
+		const { container } = await render(Checkbox, {
 			label: 'Accept terms',
 		});
 
@@ -116,7 +116,7 @@ describe('Checkbox', () => {
 	});
 
 	it('should have cursor-pointer on label wrapper', async () => {
-		const { container } = render(Checkbox, {
+		const { container } = await render(Checkbox, {
 			label: 'Click me',
 		});
 
@@ -125,19 +125,19 @@ describe('Checkbox', () => {
 	});
 
 	it('should update checked state when rerendered', async () => {
-		const { rerender } = render(Checkbox, {
+		const { rerender } = await render(Checkbox, {
 			checked: false,
 		});
 
 		const checkbox = page.getByRole('checkbox');
 		await expect.element(checkbox).not.toBeChecked();
 
-		rerender({ checked: true });
+		await rerender({ checked: true });
 		await expect.element(checkbox).toBeChecked();
 	});
 
 	it('should handle VIP checkbox use case', async () => {
-		render(Checkbox, {
+		await render(Checkbox, {
 			name: 'is_vip',
 			checked: true,
 			label: 'Mark as VIP',
@@ -151,7 +151,7 @@ describe('Checkbox', () => {
 	});
 
 	it('should not render label element when no label prop', async () => {
-		const { container } = render(Checkbox, {});
+		const { container } = await render(Checkbox, {});
 
 		// Should be a direct input, not wrapped in label
 		const labels = container.querySelectorAll('label');
@@ -159,7 +159,7 @@ describe('Checkbox', () => {
 	});
 
 	it('should maintain state through multiple interactions', async () => {
-		render(Checkbox, {
+		await render(Checkbox, {
 			checked: false,
 		});
 

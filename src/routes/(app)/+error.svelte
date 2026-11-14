@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
-	import { Button } from '$lib/components/ui';
-	import Logo from '$lib/logo.svelte';
+	import { Button } from '#lib/components/ui/index.ts';
+	import Logo from '#lib/logo.svelte';
 	import {
 		get_error_description,
 		get_error_title,
-	} from '$lib/utils/error-messages';
+	} from '#lib/utils/error-messages.ts';
 	import { get_current_user } from '../auth.remote';
 
 	const status = $derived(page.status);
@@ -70,7 +70,7 @@
 							</div>
 						</div>
 						<ul
-							class="dropdown-content menu z-1 mt-3 w-52 menu-sm rounded-box bg-base-100 p-2 shadow"
+							class="menu dropdown-content z-1 mt-3 w-52 menu-sm rounded-box bg-base-100 p-2 shadow"
 						>
 							<li class="menu-title">
 								<span>{user.name}</span>

@@ -17,8 +17,8 @@
 
 	// Aspect ratio from viewBox: 120:60 = 2:1
 	const ratio = 120 / 60;
-	const height = size;
-	const width = `calc(${size} * ${ratio})`;
+	const height = $derived(size);
+	const width = $derived(`calc(${size} * ${ratio})`);
 </script>
 
 <svg

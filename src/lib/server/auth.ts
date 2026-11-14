@@ -1,5 +1,5 @@
 import { getRequestEvent } from '$app/server';
-import { env } from '$env/dynamic/private';
+import * as env from '$app/env/private';
 import { betterAuth } from 'better-auth';
 import { sveltekitCookies } from 'better-auth/svelte-kit';
 import { native_db } from './db';

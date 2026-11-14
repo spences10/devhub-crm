@@ -1,17 +1,17 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import BaseCard from '$lib/components/base-card.svelte';
-	import PageNav from '$lib/components/page-nav.svelte';
-	import SocialLinksManager from '$lib/components/social-links-manager.svelte';
-	import TagManager from '$lib/components/tag-manager.svelte';
+	import BaseCard from '#lib/components/base-card.svelte';
+	import PageNav from '#lib/components/page-nav.svelte';
+	import SocialLinksManager from '#lib/components/social-links-manager.svelte';
+	import TagManager from '#lib/components/tag-manager.svelte';
 	import {
 		Checkbox,
 		Field,
 		Input,
 		Textarea,
-	} from '$lib/components/ui';
-	import { Cancel, Crown } from '$lib/icons';
-	import { ctrl_enter_callback } from '$lib/utils/keyboard-attachments';
+	} from '#lib/components/ui/index.ts';
+	import { Cancel, Crown } from '#lib/icons/index.ts';
+	import { ctrl_enter_callback } from '#lib/utils/keyboard-attachments.ts';
 	import { format } from 'date-fns';
 	import { scale } from 'svelte/transition';
 	import {
@@ -119,7 +119,7 @@
 		{/if}
 		<a
 			href="/contacts/{contact_id}"
-			class="tooltip btn gap-2 text-error btn-ghost btn-sm"
+			class="tooltip btn gap-2 btn-ghost text-error btn-sm"
 			data-tip="Cancel"
 			aria-label="Cancel editing"
 		>
@@ -311,14 +311,14 @@
 						{#await social_links_query then links}
 							<SocialLinksManager
 								social_links={links || []}
-								on_add={async (platform, url) => {
+								on_add={async (platform: string, url: string) => {
 									await add_social_link({
 										contact_id: contact.id,
 										platform,
 										url,
 									}).updates(social_links_query);
 								}}
-								on_delete={async (link_id) => {
+								on_delete={async (link_id: string) => {
 									await delete_social_link(link_id).updates(
 										social_links_query,
 									);
@@ -342,17 +342,17 @@
 						<TagManager
 							{contact_tags}
 							available_tags={all_tags}
-							on_add_tag={(tag_id) =>
+							on_add_tag={(tag_id: string) =>
 								add_tag_to_contact({
 									contact_id: contact.id,
 									tag_id,
 								})}
-							on_remove_tag={(tag_id) =>
+							on_remove_tag={(tag_id: string) =>
 								remove_tag_from_contact({
 									contact_id: contact.id,
 									tag_id,
 								})}
-							on_create_tag={(name, color) =>
+							on_create_tag={(name: string, color: string) =>
 								create_tag({ name, color })}
 						/>
 					{/if}

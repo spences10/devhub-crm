@@ -10,7 +10,7 @@ describe('LoadingButton', () => {
 			render: () => `<span>Submit</span>`,
 		}));
 
-		render(LoadingButton, { loading: false, children });
+		await render(LoadingButton, { loading: false, children });
 
 		const button = page.getByRole('button', { name: 'Submit' });
 		await expect.element(button).toBeInTheDocument();
@@ -22,7 +22,7 @@ describe('LoadingButton', () => {
 			render: () => `<span>Click me</span>`,
 		}));
 
-		render(LoadingButton, {
+		await render(LoadingButton, {
 			loading: false,
 			onclick: click_handler,
 			children,
@@ -39,7 +39,7 @@ describe('LoadingButton', () => {
 			render: () => `<span>Submit</span>`,
 		}));
 
-		render(LoadingButton, { loading: true, children });
+		await render(LoadingButton, { loading: true, children });
 
 		// Loading text should be visible
 		await expect
@@ -56,7 +56,7 @@ describe('LoadingButton', () => {
 			render: () => `<span>Save</span>`,
 		}));
 
-		render(LoadingButton, {
+		await render(LoadingButton, {
 			loading: true,
 			loading_text: 'Saving...',
 			children,
@@ -72,7 +72,7 @@ describe('LoadingButton', () => {
 			render: () => `<span>Submit</span>`,
 		}));
 
-		render(LoadingButton, { loading: true, children });
+		await render(LoadingButton, { loading: true, children });
 
 		const button = page.getByRole('button');
 		await expect.element(button).toBeDisabled();
@@ -83,7 +83,7 @@ describe('LoadingButton', () => {
 			render: () => `<span>Submit</span>`,
 		}));
 
-		render(LoadingButton, {
+		await render(LoadingButton, {
 			loading: false,
 			disabled: true,
 			children,
@@ -98,7 +98,7 @@ describe('LoadingButton', () => {
 			render: () => `<span>Custom</span>`,
 		}));
 
-		render(LoadingButton, {
+		await render(LoadingButton, {
 			loading: false,
 			class_names: 'btn btn-primary',
 			children,
@@ -113,7 +113,7 @@ describe('LoadingButton', () => {
 			render: () => `<span>Submit Form</span>`,
 		}));
 
-		render(LoadingButton, {
+		await render(LoadingButton, {
 			loading: false,
 			type: 'submit',
 			children,
@@ -128,7 +128,7 @@ describe('LoadingButton', () => {
 			render: () => `<span>Update</span>`,
 		}));
 
-		const { rerender } = render(LoadingButton, {
+		const { rerender } = await render(LoadingButton, {
 			loading: false,
 			children,
 		});
@@ -138,7 +138,7 @@ describe('LoadingButton', () => {
 		await expect.element(button).toBeEnabled();
 
 		// Update to loading
-		rerender({ loading: true, children });
+		await rerender({ loading: true, children });
 
 		// Now disabled and showing loading state
 		await expect.element(button).toBeDisabled();

@@ -1,11 +1,11 @@
 <script lang="ts">
-	import CompactItem from '$lib/components/compact-item.svelte';
-	import { type_badges } from '$lib/constants/badges';
-	import type { Interaction } from '$lib/types/db';
+	import CompactItem from '#lib/components/compact-item.svelte';
+	import { type_badges } from '#lib/constants/badges.ts';
+	import type { Interaction } from '#lib/types/db.ts';
 	import {
 		type DateFormat,
 		format_date,
-	} from '$lib/utils/date-helpers';
+	} from '#lib/utils/date-helpers.ts';
 
 	interface Props {
 		interaction: Interaction & {

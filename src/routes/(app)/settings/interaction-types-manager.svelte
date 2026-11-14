@@ -1,10 +1,10 @@
 <script lang="ts">
-	import BaseCard from '$lib/components/base-card.svelte';
-	import type { InteractionType } from '$lib/types/interaction-type';
+	import BaseCard from '#lib/components/base-card.svelte';
+	import type { InteractionType } from '#lib/types/interaction-type.ts';
 	import {
 		get_color_name,
 		get_icon_component,
-	} from '$lib/utils/interaction-type-helpers';
+	} from '#lib/utils/interaction-type-helpers.ts';
 	import InteractionTypeModal from './interaction-type-modal.svelte';
 	import {
 		create_interaction_type,
@@ -123,7 +123,7 @@
 			</div>
 			<button
 				type="button"
-				class="btn btn-sm btn-primary"
+				class="btn btn-primary btn-sm"
 				onclick={() => open_type_modal()}
 			>
 				Add New Type
@@ -190,7 +190,7 @@
 											</button>
 											<button
 												type="button"
-												class="btn text-error btn-ghost btn-xs"
+												class="btn btn-ghost text-error btn-xs"
 												onclick={() => delete_type(type)}
 											>
 												Delete
@@ -259,7 +259,7 @@
 									</button>
 									<button
 										type="button"
-										class="btn text-error btn-ghost btn-sm"
+										class="btn btn-ghost text-error btn-sm"
 										onclick={() => delete_type(type)}
 									>
 										Delete

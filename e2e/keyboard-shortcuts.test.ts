@@ -34,7 +34,7 @@ async function set_future_date(page: any, days: number = 7) {
 
 	// Wait for the hidden input to be updated by Svelte's reactivity
 	const expected_timestamp = future_date.getTime().toString();
-	await expect(page.locator('input[name="due_date"]')).toHaveValue(
+	await expect(page.locator('input[name^="due_date/"]')).toHaveValue(
 		expected_timestamp,
 	);
 }
@@ -48,7 +48,9 @@ test.describe('Keyboard Shortcuts - ctrl_enter_submit', () => {
 		await page.goto('/follow-ups/new');
 
 		// Wait for form to be fully loaded
-		const contact_select = page.locator('select[name="contact_id"]');
+		const contact_select = page.locator(
+			'select[name^="contact_id/"]',
+		);
 		await expect(contact_select.locator('option')).not.toHaveCount(1);
 		await contact_select.selectOption({ index: 2 });
 
@@ -75,7 +77,9 @@ test.describe('Keyboard Shortcuts - ctrl_enter_submit', () => {
 		await page.goto('/follow-ups/new');
 
 		// Wait for form to be fully loaded
-		const contact_select = page.locator('select[name="contact_id"]');
+		const contact_select = page.locator(
+			'select[name^="contact_id/"]',
+		);
 		await expect(contact_select.locator('option')).not.toHaveCount(1);
 		await contact_select.selectOption({ index: 2 });
 
@@ -102,12 +106,14 @@ test.describe('Keyboard Shortcuts - ctrl_enter_submit', () => {
 		await page.goto('/interactions/new');
 
 		// Select a contact - wait for options to load first
-		const contact_select = page.locator('select[name="contact_id"]');
+		const contact_select = page.locator(
+			'select[name^="contact_id/"]',
+		);
 		await expect(contact_select.locator('option')).not.toHaveCount(1);
 		await contact_select.selectOption({ index: 2 });
 
 		// Select interaction type - wait for options to load
-		const type_select = page.locator('select[name="type"]');
+		const type_select = page.locator('select[name^="type/"]');
 		await expect(type_select.locator('option')).not.toHaveCount(1);
 		await type_select.selectOption({ index: 1 });
 
@@ -131,7 +137,9 @@ test.describe('Keyboard Shortcuts - ctrl_enter_submit', () => {
 		await page.goto('/follow-ups/new');
 
 		// Wait for form to be fully loaded
-		const contact_select = page.locator('select[name="contact_id"]');
+		const contact_select = page.locator(
+			'select[name^="contact_id/"]',
+		);
 		await expect(contact_select.locator('option')).not.toHaveCount(1);
 		await contact_select.selectOption({ index: 2 });
 
@@ -287,7 +295,9 @@ test.describe('Keyboard Shortcuts - Cross-Platform', () => {
 		await page.goto('/follow-ups/new');
 
 		// Wait for form to be fully loaded
-		const contact_select = page.locator('select[name="contact_id"]');
+		const contact_select = page.locator(
+			'select[name^="contact_id/"]',
+		);
 		await expect(contact_select.locator('option')).not.toHaveCount(1);
 		await contact_select.selectOption({ index: 2 });
 

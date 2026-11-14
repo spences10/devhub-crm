@@ -7,8 +7,8 @@ import {
 	Target,
 	User,
 	Warning,
-} from '$lib/icons';
-import type { Contact, UserPreferences } from '$lib/types/db';
+} from '#lib/icons/index.ts';
+import type { Contact, UserPreferences } from '#lib/types/db.ts';
 import { differenceInDays, formatDistanceToNow } from 'date-fns';
 import type { Component } from 'svelte';
 import { format_date } from './date-helpers';

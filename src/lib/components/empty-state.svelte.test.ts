@@ -5,7 +5,7 @@ import EmptyState from './empty-state.svelte';
 
 describe('EmptyState', () => {
 	it('should render message text', async () => {
-		render(EmptyState, {
+		await render(EmptyState, {
 			message: 'No contacts found',
 		});
 
@@ -15,7 +15,7 @@ describe('EmptyState', () => {
 	});
 
 	it('should render without action button when not provided', async () => {
-		render(EmptyState, {
+		await render(EmptyState, {
 			message: 'No items',
 		});
 
@@ -29,7 +29,7 @@ describe('EmptyState', () => {
 	});
 
 	it('should render action link when provided', async () => {
-		render(EmptyState, {
+		await render(EmptyState, {
 			message: 'No contacts yet',
 			action_href: '/contacts/new',
 			action_text: 'Add Contact',
@@ -43,7 +43,7 @@ describe('EmptyState', () => {
 	});
 
 	it('should apply primary button styling to action link', async () => {
-		render(EmptyState, {
+		await render(EmptyState, {
 			message: 'Empty state',
 			action_href: '/create',
 			action_text: 'Create New',

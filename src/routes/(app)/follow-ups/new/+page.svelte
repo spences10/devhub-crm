@@ -1,16 +1,16 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import BaseCard from '$lib/components/base-card.svelte';
-	import PageHeaderWithAction from '$lib/components/page-header-with-action.svelte';
-	import PageNav from '$lib/components/page-nav.svelte';
+	import BaseCard from '#lib/components/base-card.svelte';
+	import PageHeaderWithAction from '#lib/components/page-header-with-action.svelte';
+	import PageNav from '#lib/components/page-nav.svelte';
 	import {
 		Button,
 		Field,
 		Input,
 		Select,
 		Textarea,
-	} from '$lib/components/ui';
-	import { ctrl_enter_submit } from '$lib/utils/keyboard-attachments';
+	} from '#lib/components/ui/index.ts';
+	import { ctrl_enter_submit } from '#lib/utils/keyboard-attachments.ts';
 	import { addDays, format, setHours, startOfDay } from 'date-fns';
 	import { get_contacts } from '../../contacts/contacts.remote';
 	import { get_user_preferences } from '../../settings/settings.remote';
@@ -63,7 +63,7 @@
 				<Field legend="Contact">
 					{#await get_contacts() then contacts}
 						<Select
-							name="contact_id"
+							{...create_follow_up.fields.contact_id.as('select')}
 							required
 							value={preselected_contact_id || ''}
 						>
@@ -90,12 +90,17 @@
 						value={date_input_value}
 						oninput={handle_date_change}
 					/>
-					<input type="hidden" name="due_date" value={timestamp} />
+					<input
+						{...create_follow_up.fields.due_date.as(
+							'hidden',
+							String(timestamp),
+						)}
+					/>
 				</Field>
 
 				<Field legend="Notes (Optional)">
 					<Textarea
-						name="note"
+						{...create_follow_up.fields.note.as('text')}
 						rows={6}
 						placeholder="What do you need to follow up about?"
 						attachment={ctrl_enter_submit()}

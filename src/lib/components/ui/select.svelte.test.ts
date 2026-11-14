@@ -10,7 +10,7 @@ describe('Select', () => {
 			render: () => `<option value="1">Test</option>`,
 		}));
 
-		render(Select, { children });
+		await render(Select, { children });
 
 		const select = page.getByRole('combobox');
 		await expect.element(select).toBeInTheDocument();
@@ -21,7 +21,7 @@ describe('Select', () => {
 			render: () => `<option value="email">Email</option>`,
 		}));
 
-		render(Select, {
+		await render(Select, {
 			value: 'email',
 			children,
 		});
@@ -36,7 +36,7 @@ describe('Select', () => {
 			render: () => `<option value="dark">Dark</option>`,
 		}));
 
-		render(Select, {
+		await render(Select, {
 			onchange: on_change,
 			children,
 		});
@@ -52,7 +52,7 @@ describe('Select', () => {
 			render: () => `<option value="1">John Doe</option>`,
 		}));
 
-		render(Select, {
+		await render(Select, {
 			required: true,
 			children,
 		});
@@ -68,7 +68,7 @@ describe('Select', () => {
 			`,
 		}));
 
-		render(Select, {
+		await render(Select, {
 			disabled: true,
 			children,
 		});
@@ -84,7 +84,7 @@ describe('Select', () => {
 			`,
 		}));
 
-		render(Select, {
+		await render(Select, {
 			name: 'contact_id',
 			children,
 		});
@@ -100,7 +100,7 @@ describe('Select', () => {
 			render: () => `<option>Test</option>`,
 		}));
 
-		const { container } = render(Select, { children });
+		const { container } = await render(Select, { children });
 
 		const select = container.querySelector('select');
 		expect(select?.classList.contains('select')).toBe(true);
@@ -112,7 +112,7 @@ describe('Select', () => {
 			render: () => `<option>Test</option>`,
 		}));
 
-		const { container } = render(Select, {
+		const { container } = await render(Select, {
 			class_name: 'max-w-xs capitalize',
 			children,
 		});

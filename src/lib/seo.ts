@@ -20,10 +20,7 @@ export function create_seo_config(
 		description = site_info.description,
 		slug = '',
 		image = `${site_info.url}/og-image.png`, // You'll want to create this
-		type = 'website',
 		author_name,
-		published_time,
-		modified_time,
 	} = options;
 
 	const url = slug ? `${site_info.url}/${slug}` : site_info.url;

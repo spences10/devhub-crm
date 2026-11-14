@@ -1,5 +1,5 @@
-import { env } from '$env/dynamic/private';
-import { get_database_path } from '$lib/server/db-path';
+import * as env from '$app/env/private';
+import { get_database_path } from '#lib/server/db-path.ts';
 import { error, type RequestHandler } from '@sveltejs/kit';
 import fs from 'node:fs/promises';
 import path from 'node:path';

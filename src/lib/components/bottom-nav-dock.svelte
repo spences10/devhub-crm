@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
-	import { dock_nav_items } from '$lib/config/navigation';
+	import { dock_nav_items } from '#lib/config/navigation.ts';
 
 	function is_active(path: string) {
 		return (

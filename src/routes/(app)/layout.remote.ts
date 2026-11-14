@@ -1,12 +1,12 @@
 import { getRequestEvent, query } from '$app/server';
-import { env } from '$env/dynamic/private';
-import { auth } from '$lib/server/auth';
-import { db } from '$lib/server/db';
+import * as env from '$app/env/private';
+import { auth } from '#lib/server/auth.ts';
+import { db } from '#lib/server/db.ts';
 import {
 	create_user_profile_from_github,
 	fetch_github_user_data,
 	user_has_profile,
-} from '$lib/server/profile-helpers';
+} from '#lib/server/profile-helpers.ts';
 import { redirect } from '@sveltejs/kit';
 
 const DEMO_USER_EMAIL = env.DEMO_USER_EMAIL || 'demo@devhub.party';

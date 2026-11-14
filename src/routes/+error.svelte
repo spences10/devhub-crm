@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import favicon from '$lib/assets/favicon.svg';
-	import { Button } from '$lib/components/ui';
-	import Logo from '$lib/logo.svelte';
+	import favicon from '#lib/assets/favicon.svg';
+	import { Button } from '#lib/components/ui/index.ts';
+	import Logo from '#lib/logo.svelte';
 	import {
 		get_error_description,
 		get_error_title,
-	} from '$lib/utils/error-messages';
+	} from '#lib/utils/error-messages.ts';
 
 	const status = $derived(page.status);
 	const message = $derived(

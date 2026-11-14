@@ -1,10 +1,11 @@
 <script lang="ts">
+	import { create_contact } from '../../routes/(app)/contacts/contacts.remote';
 	import {
 		Checkbox,
 		Field,
 		Input,
 		Textarea,
-	} from '$lib/components/ui';
+	} from '#lib/components/ui/index.ts';
 
 	type Props = {
 		name?: string;
@@ -35,8 +36,7 @@
 <div class="grid items-end gap-4 md:grid-cols-2">
 	<Field legend="Name *">
 		<Input
-			type="text"
-			name="name"
+			{...create_contact.fields.name.as('text')}
 			value={name}
 			placeholder="John Doe"
 			required
@@ -45,7 +45,11 @@
 	</Field>
 
 	<div class="pb-2">
-		<Checkbox name="is_vip" checked={is_vip} label="Mark as VIP" />
+		<Checkbox
+			{...create_contact.fields.is_vip.as('checkbox')}
+			checked={is_vip}
+			label="Mark as VIP"
+		/>
 	</div>
 </div>
 
@@ -53,8 +57,7 @@
 <div class="grid gap-4 md:grid-cols-2">
 	<Field legend="Email">
 		<Input
-			type="email"
-			name="email"
+			{...create_contact.fields.email.as('email')}
 			value={email}
 			placeholder="Email"
 			validator
@@ -63,8 +66,7 @@
 
 	<Field legend="Phone">
 		<Input
-			type="tel"
-			name="phone"
+			{...create_contact.fields.phone.as('tel')}
 			value={phone}
 			placeholder="+1 (555) 123-4567"
 		/>
@@ -75,8 +77,7 @@
 <div class="grid gap-4 md:grid-cols-2">
 	<Field legend="Company">
 		<Input
-			type="text"
-			name="company"
+			{...create_contact.fields.company.as('text')}
 			value={company}
 			placeholder="Acme Inc."
 		/>
@@ -84,8 +85,7 @@
 
 	<Field legend="Title">
 		<Input
-			type="text"
-			name="title"
+			{...create_contact.fields.title.as('text')}
 			value={title}
 			placeholder="Senior Developer"
 		/>
@@ -99,22 +99,24 @@
 		helper_text="Enter username without @"
 	>
 		<Input
-			type="text"
-			name="github_username"
+			{...create_contact.fields.github_username.as('text')}
 			value={github_username}
 			placeholder="octocat"
 		/>
 	</Field>
 
 	<Field legend="Birthday">
-		<Input type="date" name="birthday" value={birthday} />
+		<Input
+			{...create_contact.fields.birthday.as('date')}
+			value={birthday}
+		/>
 	</Field>
 </div>
 
 <!-- Notes - Full Width -->
 <Field legend="Notes">
 	<Textarea
-		name="notes"
+		{...create_contact.fields.notes.as('text')}
 		value={notes}
 		placeholder="Additional notes about this contact..."
 	/>

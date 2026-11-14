@@ -1,12 +1,17 @@
 <script lang="ts">
-	import { Button, Field, Input, Select } from '$lib/components/ui';
-	import type { InteractionType } from '$lib/types/interaction-type';
+	import {
+		Button,
+		Field,
+		Input,
+		Select,
+	} from '#lib/components/ui/index.ts';
+	import type { InteractionType } from '#lib/types/interaction-type.ts';
 	import {
 		AVAILABLE_THEME_COLORS,
 		get_available_icons,
 		get_color_name,
 		get_icon_component,
-	} from '$lib/utils/interaction-type-helpers';
+	} from '#lib/utils/interaction-type-helpers.ts';
 
 	interface Props {
 		show: boolean;
@@ -44,7 +49,7 @@
 </script>
 
 {#if show}
-	<div class="modal-open modal">
+	<div class="modal modal-open">
 		<div class="modal-box w-full max-w-md">
 			<h3 class="text-lg font-bold">
 				{editingType ? 'Edit' : 'Create'} Interaction Type

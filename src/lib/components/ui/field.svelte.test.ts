@@ -10,7 +10,7 @@ describe('Field', () => {
 			render: () => `<input type="text" />`,
 		}));
 
-		render(Field, {
+		await render(Field, {
 			legend: 'Email',
 			children,
 		});
@@ -24,7 +24,7 @@ describe('Field', () => {
 			render: () => `<input type="text" placeholder="Enter email" />`,
 		}));
 
-		render(Field, {
+		await render(Field, {
 			legend: 'Email',
 			children,
 		});
@@ -38,7 +38,7 @@ describe('Field', () => {
 			render: () => `<input type="text" />`,
 		}));
 
-		const { container } = render(Field, {
+		const { container } = await render(Field, {
 			legend: 'Test',
 			children,
 		});
@@ -52,7 +52,7 @@ describe('Field', () => {
 			render: () => `<input type="text" />`,
 		}));
 
-		const { container } = render(Field, {
+		const { container } = await render(Field, {
 			legend: 'Test',
 			children,
 		});
@@ -66,7 +66,7 @@ describe('Field', () => {
 			render: () => `<input type="text" />`,
 		}));
 
-		render(Field, {
+		await render(Field, {
 			legend: 'GitHub Username',
 			helper_text: 'Enter username without @',
 			children,
@@ -82,7 +82,7 @@ describe('Field', () => {
 			render: () => `<input type="text" />`,
 		}));
 
-		const { container } = render(Field, {
+		const { container } = await render(Field, {
 			legend: 'Name',
 			children,
 		});
@@ -96,7 +96,7 @@ describe('Field', () => {
 			render: () => `<input type="text" />`,
 		}));
 
-		const { container } = render(Field, {
+		const { container } = await render(Field, {
 			legend: 'Test',
 			class_name: 'mb-4',
 			children,
@@ -115,7 +115,7 @@ describe('Field', () => {
 			`,
 		}));
 
-		const { container } = render(Field, {
+		const { container } = await render(Field, {
 			legend: 'Name',
 			children,
 		});
@@ -134,7 +134,7 @@ describe('Field', () => {
 			`,
 		}));
 
-		render(Field, {
+		await render(Field, {
 			legend: 'Email',
 			children,
 		});
@@ -155,7 +155,7 @@ describe('Field', () => {
 			`,
 		}));
 
-		render(Field, {
+		await render(Field, {
 			legend: 'Due Date',
 			helper_text: 'When do you want to follow up with this contact?',
 			children,
@@ -182,7 +182,7 @@ describe('Field', () => {
 			`,
 		}));
 
-		const { container } = render(Field, {
+		const { container } = await render(Field, {
 			legend: 'Contact Selector',
 			children,
 		});
@@ -201,7 +201,7 @@ describe('Field', () => {
 			`,
 		}));
 
-		render(Field, {
+		await render(Field, {
 			legend: 'Notes',
 			children,
 		});
@@ -222,7 +222,7 @@ describe('Field', () => {
 			`,
 		}));
 
-		render(Field, {
+		await render(Field, {
 			legend: 'Name *',
 			children,
 		});
@@ -236,7 +236,7 @@ describe('Field', () => {
 			render: () => `<input type="text" />`,
 		}));
 
-		const { container } = render(Field, {
+		const { container } = await render(Field, {
 			legend: 'Test Field',
 			helper_text: 'Help text',
 			children,

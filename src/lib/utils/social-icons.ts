@@ -7,7 +7,7 @@ import {
 	Mastodon,
 	Twitter,
 	YouTube,
-} from '$lib/icons';
+} from '#lib/icons/index.ts';
 import type { Component } from 'svelte';
 
 type IconComponent = Component<any>;

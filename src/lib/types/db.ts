@@ -1,5 +1,5 @@
 // Database type definitions for Devhub CRM
-import type { InteractionType } from '$lib/constants/interaction';
+import type { InteractionType } from '#lib/constants/interaction.ts';
 
 export interface Contact {
 	id: string;

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Rocket, Sparkles } from '$lib/icons';
+	import { Rocket, Sparkles } from '#lib/icons/index.ts';
 
 	type Props = {
 		on_demo_login: () => void;
@@ -42,7 +42,7 @@
 				</a>
 				<button
 					onclick={on_demo_login}
-					class="responsive-btn btn gap-2 border-2 border-base-100 text-base-100 shadow-2xl transition-all duration-300 btn-outline hover:scale-105 hover:bg-base-100/10"
+					class="responsive-btn btn gap-2 border-2 border-base-100 btn-outline text-base-100 shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-base-100/10"
 				>
 					<Sparkles
 						size="20px"
@@ -52,7 +52,7 @@
 				</button>
 				<a
 					href="/login"
-					class="responsive-btn btn border-2 border-primary-content text-primary-content shadow-lg transition-all duration-300 btn-outline hover:scale-105 hover:bg-primary-content/10"
+					class="responsive-btn btn border-2 border-primary-content btn-outline text-primary-content shadow-lg transition-all duration-300 hover:scale-105 hover:bg-primary-content/10"
 				>
 					Sign In
 				</a>
