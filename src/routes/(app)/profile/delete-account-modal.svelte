@@ -94,7 +94,7 @@
 
 <!-- Modal -->
 {#if modal_open}
-	<dialog class="modal modal-open">
+	<dialog class="modal-open modal">
 		<div class="modal-box w-11/12 max-w-md">
 			<h3 class="text-lg font-bold text-error">Delete Account</h3>
 			<p class="py-4">

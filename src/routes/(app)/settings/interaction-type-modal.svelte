@@ -49,7 +49,7 @@
 </script>
 
 {#if show}
-	<div class="modal modal-open">
+	<div class="modal-open modal">
 		<div class="modal-box w-full max-w-md">
 			<h3 class="text-lg font-bold">
 				{editingType ? 'Edit' : 'Create'} Interaction Type

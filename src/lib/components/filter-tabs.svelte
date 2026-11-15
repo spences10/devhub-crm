@@ -8,7 +8,7 @@
 	let { options, active_filter, on_filter_change }: Props = $props();
 </script>
 
-<div class="tabs tabs-box mb-6">
+<div class="tabs-box mb-6 tabs">
 	{#each options as option}
 		<button
 			type="button"

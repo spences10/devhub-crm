@@ -135,7 +135,7 @@
 								</div>
 								<ul
 									tabindex="0"
-									class="menu dropdown-content z-1 mt-3 w-52 menu-sm rounded-box bg-base-100 p-2 shadow"
+									class="dropdown-content menu z-1 mt-3 w-52 menu-sm rounded-box bg-base-100 p-2 shadow"
 								>
 									<li class="menu-title">
 										<span>{user.name}</span>
