@@ -199,8 +199,8 @@ importers:
         specifier: ^1.63.0
         version: 1.65.1
       '@sveltejs/adapter-node':
-        specifier: 6.0.5
-        version: 6.0.5(@sveltejs/kit@3.4.1(@sveltejs/vite-plugin-svelte@7.3.2(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))(svelte@5.59.2(@typescript-eslint/types@8.69.0)))(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))(svelte@5.59.2(@typescript-eslint/types@8.69.0))(typescript@6.0.3))(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))
+        specifier: 6.0.6
+        version: 6.0.6(@sveltejs/kit@3.4.1(@sveltejs/vite-plugin-svelte@7.3.2(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))(svelte@5.59.2(@typescript-eslint/types@8.69.0)))(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))(svelte@5.59.2(@typescript-eslint/types@8.69.0))(typescript@6.0.3))(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))
       '@sveltejs/kit':
         specifier: 3.4.1
         version: 3.4.1(@sveltejs/vite-plugin-svelte@7.3.2(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))(svelte@5.59.2(@typescript-eslint/types@8.69.0)))(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))(svelte@5.59.2(@typescript-eslint/types@8.69.0))(typescript@6.0.3)
@@ -665,13 +665,13 @@ packages:
     peerDependencies:
       acorn: ^8.9.0
 
-  '@sveltejs/adapter-node@6.0.5':
-    resolution: {integrity: sha512-CcQ9Cnvns+PhI4tHKRrV63UcZqZ2+Dnaa4c65E9WSO932LsSpyWk9WLyiwUTRa7CLX5lCJAppoEEz1A0t6p8lQ==}
+  '@sveltejs/adapter-node@6.0.6':
+    resolution: {integrity: sha512-Jlmv6N83kES+Y+dLBq2hU7vPdsNGcCG0uQeEPiNAHZqjMQdV1sXSiU0WMXfuEFJAkOGF9YvafraavMrIXg6qGA==}
     peerDependencies:
       '@sveltejs/kit': ^3.0.0-next.0
 
-  '@sveltejs/adapter-server@0.1.0':
-    resolution: {integrity: sha512-+IlBRTkHENyrVd24pTntoVqwonw2JjkZQD1kyZBnIqJsEtdHzLMdIs+b3p9AiWEzfTNZwVK/IaHGlzgyGiPX0w==}
+  '@sveltejs/adapter-server@0.2.0':
+    resolution: {integrity: sha512-ybwc7XrrTL5adVYQPoK5y/xiR3MNeRq5koAWfW+yPyi5fPzCFJ/kNDWWgp6JBACB8MV2ET6DhB97q7MMlEL+2A==}
     peerDependencies:
       vite: ^8.0.12
 
@@ -2135,14 +2135,14 @@ snapshots:
     dependencies:
       acorn: 8.18.0
 
-  '@sveltejs/adapter-node@6.0.5(@sveltejs/kit@3.4.1(@sveltejs/vite-plugin-svelte@7.3.2(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))(svelte@5.59.2(@typescript-eslint/types@8.69.0)))(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))(svelte@5.59.2(@typescript-eslint/types@8.69.0))(typescript@6.0.3))(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))':
+  '@sveltejs/adapter-node@6.0.6(@sveltejs/kit@3.4.1(@sveltejs/vite-plugin-svelte@7.3.2(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))(svelte@5.59.2(@typescript-eslint/types@8.69.0)))(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))(svelte@5.59.2(@typescript-eslint/types@8.69.0))(typescript@6.0.3))(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))':
     dependencies:
-      '@sveltejs/adapter-server': 0.1.0(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))
+      '@sveltejs/adapter-server': 0.2.0(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))
       '@sveltejs/kit': 3.4.1(@sveltejs/vite-plugin-svelte@7.3.2(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))(svelte@5.59.2(@typescript-eslint/types@8.69.0)))(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))(svelte@5.59.2(@typescript-eslint/types@8.69.0))(typescript@6.0.3)
     transitivePeerDependencies:
       - vite
 
-  '@sveltejs/adapter-server@0.1.0(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))':
+  '@sveltejs/adapter-server@0.2.0(@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3))':
     dependencies:
       vite: '@voidzero-dev/vite-plus-core@8.3.8001(@types/node@26.6.11)(jiti@2.7.0)(typescript@6.0.3)'
 
